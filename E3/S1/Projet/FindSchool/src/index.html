@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+ <title>FindSchool</title>
+ <link rel="icon" type="image/png" href="assets/icons/logonoir.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/leaflet/dist/leaflet.css">
+  <script src="vendor/leaflet/dist/leaflet.js"></script>
+  <script src="vendor/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <link src="vendor/leaflet.markercluster/dist/MarkerCluster.css">
+  <link src="vendor/leaflet.markercluster/dist/MarkerCluster.Default.css">
+
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="title-container">
+      <img src="assets/icons/logovert.png" alt="Logo école" class="logo-img">
+      <h1>FindSchool</h1>
+    </div>
+  </header>
+  <div class="main-layout">
+    <div class="sidebar">
+      <form class="filters">
+        <h3 class="sidebar-title">
+          <img src="assets/icons/profil.png" alt="Filtre" class="filter-icon">
+          Profil
+        </h3>
+      
+        <div class="group">
+            <div class="group-title">Profil recherché</div>
+
+            <label class="check">
+              <input type="radio" name="profil" value="equilibre" checked>
+              Équilibre
+            </label>
+
+            <label class="check">
+              <input type="radio" name="profil" value="proximite">
+              Proximité
+            </label>
+
+            <label class="check">
+              <input type="radio" name="profil" value="performance">
+              Performance
+            </label>
+          </div>
+
+        <h3 class="sidebar-title">
+          <img src="assets/icons/filtre.png" alt="Filtre" class="filter-icon">
+          Filtres de recherche
+        </h3>
+    
+        <div class="group">
+          <div class="group-title">Type d’établissement</div>
+        
+          <label class="check">
+            <input type="radio" name="statut" value="" checked>
+            Indifférent
+          </label>
+        
+          <label class="check">
+            <input type="radio" name="statut" value="public">
+            Lycée public
+          </label>
+        
+          <label class="check">
+            <input type="radio" name="statut" value="prive">
+            Lycée privé
+          </label>
+        </div>
+    
+        <div class="group">
+          <div class="group-title">Type de lycée</div>
+        
+          <label class="check">
+            <input type="radio" name="voie" value="" checked>
+            Indifférent
+          </label>
+        
+          <label class="check">
+            <input type="radio" name="voie" value="generale">
+            Général
+          </label>
+        
+          <label class="check">
+            <input type="radio" name="voie" value="technologique">
+            Technologique
+          </label>
+        
+          <label class="check">
+            <input type="radio" name="voie" value="professionnel">
+            Professionnel
+          </label>
+        </div>
+        
+    
+        <div id="blocGeneral" style="display:none;">
+          <div class="group">
+
+            <div class="group-title">Options</div>
+                    
+            <div class="field">
+              <div id="specialitesGeneralList"></div>
+            </div>
+
+          </div>
+          
+
+          <div class="group">
+          <label class="field">
+            <div class="group-title">
+              Taux de réussite 
+              <span class="hint" tabindex="0">
+                ?
+                <span class="tooltip" role="tooltip">
+                  Si aucune spécialité n’est cochée, le taux s’applique à l’ensemble de la voie.<br><br>
+                  Si une ou plusieurs spécialités sont cochées, le lycée est gardé si au moins une spécialité cochée atteint ce taux.
+                </span>
+              </span>
+            </div>
+          <input id="tauxMinGeneral" name="tauxMinGeneral" type="number" min="0" max="100" step="1" placeholder="95" oninput="this.value = Math.min(100, Math.max(0, this.value))">
+          <span>%</span>  
+        </label>
+          </div>
+        </div>
+        
+    
+        <div id="blocTechno" style="display:none;">
+          <div class="group">
+            <div class="group-title">Filières</div>
+            <div class="field">
+              <div id="specialitesTechnoList"></div>
+            </div>
+          </div>
+        
+          <div class="group">
+            <div class="field">
+              <div class="group-title">
+                Taux de réussite
+                <span class="hint" tabindex="0">
+                  ?
+                  <span class="tooltip">
+                    Si aucune série technologique n’est cochée, le lycée est gardé si
+                    au moins une série proposée atteint ce taux.<br><br>
+                    Si une ou plusieurs séries sont cochées, le lycée est gardé si
+                    au moins une série cochée atteint ce taux.
+                  </span>
+                </span>
+              </div>
+           
+                <input id="tauxMinTechno" name="tauxMinTechno" type="number" min="0" max="100" step="1" placeholder="95" oninput="this.value = Math.min(100, Math.max(0, this.value))">
+                <span>%</span>  
+              </div>
+          </div>
+        </div>
+        
+        <div id="blocPro" style="display:none;">
+          <div class="group">
+            <div class="group-title">Filières</div>
+            <div class="field">
+              <div id="specialitesProList"></div>
+            </div>
+          </div>
+        
+          <div class="group">
+            <div class="field">
+              <div class="group-title">
+                Taux de réussite
+                <span class="hint" tabindex="0">
+                  ?
+                  <span class="tooltip">
+                    Si aucun domaine professionnel n’est coché, le lycée est gardé si
+                    au moins un domaine proposé atteint ce taux.<br><br>
+                    Si un ou plusieurs domaines sont cochés, le lycée est gardé si
+                    au moins un domaine coché atteint ce taux.
+                  </span>
+                </span>
+              </div>
+                <input id="tauxMinPro" name="tauxMinPro" type="number" min="0" max="100" step="1" placeholder="95" oninput="this.value = Math.min(100, Math.max(0, this.value))">
+                <span>%</span>  
+            </div>
+          </div>
+        </div>
+        <div class="group">
+          <div class="group-title">Services disponibles</div>
+
+          <label class="check">
+            <input type="checkbox" name="services" value="restauration">
+            Restauration
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="services" value="hebergement">
+            Hébergement
+          </label>
+
+          <label class="check">
+            <input type="checkbox" name="services" value="apprentissage">
+            Apprentissage
+          </label>
+        </div>
+      </form>
+
+        <button type="button" id="resetBtn" class="btn btn-primary">
+          <img src="assets/icons/reset.png" alt="" class="btn-icon">
+          Réinitialiser
+        </button>
+      </div>
+    
+    <div id="map"></div>
+
+    <div id="resultsPopup" class="results-popup " style="display: none;">
+      <div class="results-header">
+        <div class="results-title">
+        <img src="assets/icons/logovertsansfond.png" alt="liste" class="results-icon">
+        <span id="lycees-count">0</span> lycées trouvés
+        <button id="resultsToggle" class="results-toggle" type="button" aria-expanded="true" aria-controls="resultsBody">
+          ▼
+        </button>
+      </div>
+      
+      </div>
+    
+      <div id="resultsBody" class="results-body">
+        <ul id="lycees-list"></ul>
+        
+      </div>
+    </div>
+  
+    <button id="locateBtn" class="locate-btn" title="Revenir à ma position">
+      <img src="assets/icons/marqueurvert.png" alt="Ma position" class="locate-icon">
+    </button>
+  </div>
+</body>
+</html>
