@@ -1,0 +1,9 @@
+1. La complexité de la méthode findByTitle de la classe Library est de O(n).
+
+2. La structure de données algorithmique est table de hachage. HashMap stocke 
+les articles dans des paires clé/valeur. Pour améliorer la performance de findByTitle, 
+on peut stocker les books en mettant en clé le title du book et en valeur le book.
+Sa complexité sera alors O(1).
+
+4. On préfère une classe plutôt qu’un record ici parce que Library représente un objet modifiable.
+

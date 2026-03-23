@@ -1,0 +1,6 @@
+1. Pour corriger le warning, on doit soit supprimer le champs books, 
+sinon l'utiliser dans une méthode.
+
+5. Ne rien trouver est un cas normal lors d’une recherche.
+Donc findByTitle doit renvoyer null pour indiquer “aucun résultat”, 
+et non lever une exception qui est réservée aux erreurs.
