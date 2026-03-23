@@ -1,0 +1,11 @@
+1. b1 == b2 affiche true car les deux pointent vers la même adresse.
+   b1 == b3 affihce false car quand on fait new String on créé une 
+   nouvelle adresse donc les deux ne pointent pas vers la même adresse.
+
+2. Pour tester si deux objets ont le même cotenu, on utilise la méthode 
+equals().
+
+4. On redéfinit le toString() du record Book.
+
+6. L'annotation @Override sert à faire la différence entre une nouvelle 
+méthode et le remplacement d'une méthode existante.

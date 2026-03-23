@@ -1,0 +1,3 @@
+2. Si aucun argument est passé, l'accès à agrs[0] 
+provoque une ArrayIndexOutOfBoundsException au moment 
+de l'exécution.

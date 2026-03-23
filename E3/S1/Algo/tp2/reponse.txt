@@ -1,0 +1,13 @@
+Quelques réponses possibles
+
+6.6. On veut O(1) pour les deux opérations, donc il faut insérer à la fin et extraire au début. On peut vérifier la complexité avec un N grand ou on peut donner l'argument qu'il n'y a pas de boucle dans la fonction.
+
+7.7. On veut O(n) pour l'insertion et O(1) pour l'extraction.
+
+8.2. Pour que la file d'attente (et donc le temps moyen de réponse)n'explose pas, il faut avoir N_VENDORS > MEAN_SERVICE_TIME * ARRIVAL_RATE. 
+
+9.4. To consistently observe something close to the theoretical value, one must set CLOSING_TIME to something BIG. For the default parameters, 10^6 is reasonable.
+
+6.4 Les complexités des fonctions enqueue_q et dequeue_q sont O(1) car il n'y a pas de boucle dans ces fonctions.
+
+7.7 La complexité de la fonction insert_pq vaut O(n) car on a une boucle et extract_min_pq vaut O(1).

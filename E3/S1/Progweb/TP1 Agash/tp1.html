@@ -1,0 +1,115 @@
+     <!DOCTYPE html>
+     <html lang="fr">
+       <head>
+        <meta charset="UTF-8">
+        <title>Compte Rendu de TP1</title>
+        <link rel="stylesheet" type="text/css" href="tp1.css">
+       </head>
+       <body>
+        <div id="content">
+            <div id="contenu">
+
+        <div id="head">
+            <img src="Logo-esiee-Paris-UGE.svg.png" width="300" height="100" alt="Logo ESIEE Paris"/>
+            <h1>Compte Rendu de TP1</h1>
+        </div>
+        
+    <table>
+    <tr>
+        <td class="a"></td>
+        <td class="a"></td>
+        <td></td>
+    </tr>
+    <tr>
+      <td class="utile"></td>
+      <td class="utile">AGASH ANANDASANGAR</td>
+      <td class="inutile"></td>
+    </tr>
+    <tr>
+      <td class="utile">E3 INFO</td>
+      <td class="utile"></td>
+      <td class="inutile"></td>
+    </tr>
+    <tr>
+      <td class="utile" colspan="2">TP 1 de Programmation Web</td>
+      <td class="inutile"></td>
+    </tr>
+  </table>
+    
+        <h2>Exercice: Document de base</h2>
+        <ol>
+            <li>Il manque la balise &lt;meta&gt; dans &lt;head&gt;.</li>
+            <li>Les tags h1, h2 et h3 servent à mettre des titres sur notre page html.</li>
+            <li>Le tag p sert à écrire des paragraphes sur notre page.</li>
+            <li>Les tags HTML commencent par une balise ouvrante &lt;foo&gt; et finissent
+        par une balise fermante &lt;/foo&gt;</li>
+            <li>Pour mettre en <b>gras</b>, on utilise la balise &lt;b&gt;. 
+                Pour mettre en <i>italique</i>, on utilise la balise &lt;i&gt;.</li>
+            <li><b><i>On imbrique les deux balises.</i></b></li>
+            <li>On ajoute la balise &lt;title&gt; dans &lt;head&gt;.</li>
+            <li><a href="http://forax.github.io/course/progweb/#/">Cours de Programmation Web</a></li>
+            <li><img src="mon-image-a-moi.jpeg" width="361" height="282" alt="Photo de l'arbre de ma page HTML"></li>
+        </ol>
+       
+        <h2>Exercice: Uniform Resource Locator</h2>
+
+        <ol>
+            <li>Le nom de machine est www.monge.univ.mlv.fr. Le nom du domaine est monge.univ.mlv.fr</li>
+            <li>La première ligne correspond à l'adresse IP de monge.univ.mlv.fr
+            et la deuxième correspond au mail de la machine.</li>
+            <li>Car c'est plus simple pour un utilisateur de retenir un nom 
+            qu'une suite de 4 nombres.</li>
+            <li>On arrive pas à accéder au cours car l'adresse IP fourni est l'adresse de la machine et non du cours.</li>
+            <li>
+                <p>Elle affiche le chemin emprunté pour accéder à forax.github.io.</p>
+                <p>C'est fwint1infpedago.univ-eiffel.fr le nom du routeur de sortie.</p>
+                <ol>
+                    <li>fwext1.univ-eiffel.fr</li>
+                    <li>195.220.83.139</li>
+                    <li>vl148-te0-0-0-1-ren-nr-marne-rtr-091.noc.renater.fr</li>
+                    <li>be4-ren-nr-creteil-rtr-091.noc.renater.fr, vl630-be4-ren-nr-jussieu-rtr-091.noc.renater.fr</li>
+                    <li>xe-1-1-12-ren-nr-paris1-rtr-131.noc.renater.fr, xe-1-1-21-ren-nr-paris1-rtr-131.noc.renater.fr,
+                xe-0-0-10--marseille1-rtr-131.noc.renater.fr
+                    </li>
+                    <li>renater-ias-geant-gw.par.fr.geant.net</li>
+                    <li>lag-1-0.rt0.par.fr.geant.net</li>
+                    <li>lag-8-0.rt0.lon2.uk.geant.net</li>
+                    <li>lag-2-0.rt0.lon.uk.geant.net</li>
+                    <li>ae3-0.mx1.lon.uk.geant.net</li>
+                </ol>
+            </li>
+            <li>
+                <p>Le nom de la machine est root.mai-ko.link et son nom de domaine est www.mai-ko.com.</p>
+                <p>La ville de l'hébergeur est Osaka (Japon).</p>
+                <p>Lorsque j'effectue un ping sur la machine www.mai-ko.com, ça me renvoie "Request timeout for icmp_seq 0".</p>
+                <p>Le ping sur la machine forax.github.io est très bas, il se situe entre 3 à 7 ms, donc le serveur est très proche. 
+                    Le TTL est à 59, donc il n’y a que quelques routeurs entre le serveur et moi.</p>
+            </li>
+        </ol>
+        
+        <h2>Exercice: Service HTTP</h2>
+
+        <ol>
+            <li>Le fichier /etc/services sert à faire la correspondance entre les noms de services réseau et leurs numéros de ports.</li>
+            <li>Le numéro du port TCP correspond au port 80.</li>
+            <li>Le header :<br>
+                HTTP/1.0 408 Request Time-out<br>
+                Server: AkamaiGHost<br>
+                Mime-Version: 1.0<br>
+                Date: Mon, 29 Sep 2025 15:56:26 GMT<br>
+                Content-Type: text/html<br>
+                Content-Length: 314<br>
+                Expires: Mon, 29 Sep 2025 15:56:26 GMT<br>
+            </li>
+            <li>Les 3 valeurs correspond à la version du protocole HTTP, le code de statut 408 et son message associé.</li>
+            <li>Le Content-Type correspond au type de contenu, ici c'est une page HTML.</li>
+            <li>Le Content-Length correspond à la taille du contenu, ici il fait 314 octets.</li>
+            <li></li>
+            <li>Il est obligatoire de mettre l'Host car on peut avoir plusieurs site en virtuel sur une même IP.</li>
+            <li>La valeur de location est http://www.igm.univ-mlv.fr/~forax, elle correspond à l'url où le site est hebergé.</li>
+        </ol>
+    </div>
+    </div>
+
+    </body>
+     </html>

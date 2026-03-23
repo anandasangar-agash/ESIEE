@@ -1,0 +1,5 @@
+1. Le problème vient de la méthode equals, elle n'a pas été rédifini
+dans la classe Book2, donc la méthode utilisée est celle héritée de java.lang.Object.
+De plus Object.equals() compare les références mémoire, pas le contenu des objets.
+
+2. Pour corriger ce problème, on va implémenter la méthode equals dans la classe Book2.

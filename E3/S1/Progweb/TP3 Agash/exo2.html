@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+ <head>
+   <meta charset="utf-8">
+   <title>Exercie 2</title>
+   <script>
+     "use strict";
+   
+    function startClock(clockId) {
+      let canvas = document.getElementById(clockId);
+      let context = canvas.getContext('2d');
+      var date = new Date();
+      var heure = date.getHours();
+      var minute = date.getMinutes();
+      var secondes = date.getSeconds();
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      const taille = Math.min(canvas.width, canvas.height)
+
+      const radius = taille / 2 * 0.90;
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2; 
+
+      context.beginPath();
+      context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+      context.strokeStyle = 'teal';
+      context.lineWidth = 3; 
+      context.stroke();
+
+      context.beginPath();
+      context.arc(centerX, centerY, 5, 0, 2 * Math.PI);
+      context.fillStyle = 'black';
+      context.fill();
+
+      const aiguille = taille / 2 * 0.8;
+      const aiguilleh = taille / 2 * 0.6;
+
+      function drawHand(context, centerX, centerY, length, angleDegrees, color, lineWidth) {
+
+        const angleRad = (angleDegrees - 90) * (Math.PI / 180);
+        const endX = centerX + length * Math.cos(angleRad);
+        const endY = centerY + length * Math.sin(angleRad);
+
+        context.beginPath();
+        context.moveTo(centerX, centerY);
+        context.lineTo(endX, endY);
+        context.strokeStyle = color;
+        context.lineWidth = lineWidth;
+        context.stroke();
+
+    }
+
+      drawHand(context, centerX, centerY, aiguille, (6 * secondes), 'red', 2);
+      drawHand(context, centerX, centerY, aiguille, (6 * minute), 'darkblue', 3);
+      drawHand(context, centerX, centerY, aiguilleh, (30 * heure), 'black', 4);
+
+       for (let i = 0; i < 12; i++) {
+        
+        const angle = (i * 30) * (Math.PI / 180); 
+
+        
+        const startX = centerX + radius * Math.cos(angle);
+        const startY = centerY + radius * Math.sin(angle);
+
+        
+        const endX = centerX + (radius - 10) * Math.cos(angle);
+        const endY = centerY + (radius - 10) * Math.sin(angle);
+
+        
+        context.beginPath();
+        context.moveTo(startX, startY);
+        context.lineTo(endX, endY);
+        context.strokeStyle = 'darkgreen'; 
+        context.lineWidth = 2;
+        context.stroke();
+      }
+
+     }     
+   </script>
+ </head>
+ <body>
+  <h2>Plein d'horloges</h2>
+  <canvas id="clock1"
+          width="200"
+          height="200">
+  </canvas>
+  <canvas id="clock2"
+          width="400"
+          height="600">
+  </canvas>
+  <script>
+    window.onload = () => {
+      window.setInterval(() => {
+        startClock('clock1');
+        startClock('clock2');
+       } , 1000);
+     }
+  </script>
+ </body>
+</html>

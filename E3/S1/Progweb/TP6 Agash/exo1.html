@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Chômeurs en Ile de France</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <style>
+        #map { width: 600px; height: 600px; }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script>
+        "use strict";
+
+        function maxChom2009(data){
+            let max = 0;
+            for(let feature of data.features){
+            max = Math.max(max, feature.properties.chom2009);
+            }
+            console.log(max);
+          };
+
+        function toSurface(x) {
+          return Math.PI * x * x;
+          };
+
+        function fromSurface(s) {
+          return Math.sqrt(s / Math.PI);
+          };
+
+        function createGeoLayer(data, max, prop) {
+          const maxMap = 20; 
+
+          return L.geoJSON(data, {
+            filter: f => f.properties[prop] >= 1000, 
+            pointToLayer: function(feature, latlng) {
+              const value = feature.properties[prop];
+
+              const radius = 40 * fromSurface((value / max) * toSurface(maxMap));
+
+              return L.circle(latlng, {
+                radius: radius,
+                stroke: false,
+                fillColor: "blue",
+                fillOpacity: 0.5
+              }).bindTooltip(
+                `${feature.properties.insee} : ${value} chômeurs`,
+                { permanent: false, direction: "top" }
+              );
+            }
+          });
+        };
+
+         function maxProperties(data, propertyNames) {
+  
+          const maxValues = propertyNames.map(() => 0);
+
+          for (let feature of data.features) {
+              propertyNames.forEach((prop, i) => {
+                  const value = feature.properties[prop];
+                  if (value !== undefined) {
+                      maxValues[i] = Math.max(maxValues[i], value);
+                  }
+              });
+          }
+
+          return maxValues;
+        }
+        
+        window.onload = async () => {
+          let map = L.map('map', {
+              center: [48.856667, 2.352222],
+              zoom: 11
+            });
+
+          let layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+              maxZoom: 15,
+              attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            });
+          layer.addTo(map);
+
+          let response = await fetch("chomeurs-en-ile-de-france.geojson");
+          let data = await response.json();
+
+          console.log(data.features);
+          
+          maxChom2009(data);
+
+          const maxchom09 = data.features.reduce(
+            (max, feature) => Math.max(max, feature.properties.chom2009), 0);
+          console.log(maxchom09);
+          const maxchom19 = data.features.reduce(
+            (max, feature) => Math.max(max, feature.properties.chom2019), 0);
+          
+          let layerCourant = createGeoLayer(data, maxchom09, "chom2009");
+          layerCourant.addTo(map);
+
+          let [max2009, max2019] = maxProperties(data, ["chom2009", "chom2019"]);
+
+          console.log("Max 2009 :", max2009);
+          console.log("Max 2019 :", max2019);
+
+          document.getElementById('year').onchange = e =>{
+            const year = e.target.value;
+            console.log("Nouvelle année sélectionnée :", year);
+            if (layerCourant) {
+              map.removeLayer(layerCourant);
+            }
+
+            if(year === "2009"){
+              layerCourant = createGeoLayer(data, max2009, "chom2009");
+            } else if (year === "2019"){
+              layerCourant = createGeoLayer(data, max2019, "chom2019");
+            }
+
+            layerCourant.addTo(map);
+          };
+
+        };
+    </script>
+</head>
+<body>
+  <div>
+    <label for="year">Year</label>
+    <select id="year">
+        <option value="2009">2009</option>
+        <option value="2019">2019</option>
+    </select>
+  </div>
+  <div id="map"></div>
+</body>
+</html>

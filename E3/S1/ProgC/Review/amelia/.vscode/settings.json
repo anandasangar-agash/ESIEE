@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "interface.h": "c",
+        "in_out.h": "c",
+        "stdio.h": "c",
+        "mlv_all.h": "c"
+    }
+}

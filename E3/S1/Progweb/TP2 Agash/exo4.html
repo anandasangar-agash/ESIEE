@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <style>
+   ul{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    background-color: tomato;
+    height: 48px;
+    width: 100%;
+    border-bottom: 2px solid black;
+   }
+
+   li{
+    color: yellow;
+    font-weight: bold;
+    font-family: Courier;
+    text-align: left;
+    width: 120px;
+    margin: 10px;
+    position: relative;
+   }
+
+   li:last-child{
+    margin-left: auto;
+    margin-right: 10px;
+   }
+   ul li ul{
+    position: absolute;
+    height: 100px;
+    top: 35px;
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: tomato;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-shadow: 2px;
+    z-index: 20;
+   }
+
+   ul li ul li{
+    width: 120px;
+    padding: 8px;
+    color: yellow;
+   }
+
+   ul li:hover > ul{
+    display: block;
+   }
+   
+  </style>
+ </head>
+ <body>
+   <div>
+    <ul>
+     <li>
+       Web
+       <ul>
+        <li>Test1</li>
+        <li>Test2</li>
+       </ul>
+     </li>
+     <li>HTML</li>
+     <li>CCS</li>
+     <li>Help</li>
+    </ul>
+   </div>
+ </body>
+</html>

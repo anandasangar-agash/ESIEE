@@ -1,0 +1,3 @@
+3. Grâce au JIT et aux optimisations de la JVM, le bytecode 
+Java est compilé en code natif efficace ce qui rend son exécution 
+presque aussi rapide que celle du C.

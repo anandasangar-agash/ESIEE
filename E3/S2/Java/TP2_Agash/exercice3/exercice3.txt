@@ -1,0 +1,1 @@
+2. Dans la première version, on accède directement aux champs du record. Dans la version 2, on appelle des méthodes accesseurs. La première version est plus performante car la version 2 on appelle une méthode et que dans la version 1 on accède directement.

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Station essence en Seine et Marne</title>
+   <link rel="icon" href="data:,">
+   <!-- add leaflet CSS here -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+   <style>
+     #map { width: 600px; height: 600px; }
+   </style>
+   <!-- add leaflet JavaScript here -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+   <script>
+     "use strict";
+
+     window.onload = async () => {
+       // TODO
+      
+      var layer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 15,
+            attribution: '©<a href="http://www.openstreetmap.org/copyright">OSM</a>'
+        });
+ 
+     /* let map = L.map('map',{
+        center: [48.665277,2.842252],
+        zoom:9,
+        layers:[layer]
+       });
+       
+       let marker = L.marker([48.665277,2.842252],{
+        title: "Center of Seine-et-Marne",
+        opacity: 0.75
+       });
+       marker.addTo(map);
+       */
+      
+      var latlng = L.latLng(48.665277,2.842252);
+      const prix = "gazole_prix";
+      
+      let response = await fetch("./prix-des-carburants-en-france-flux-instantane-v2.geojson");
+      let data = await response.json();
+      let geoLayer = L.geoJSON(data, {
+        filter: function(feature){
+            return feature.properties[prix] > 1.8 
+            && feature.properties.id != 77140010
+            && feature.properties.id != 77140012;
+        },
+        pointToLayer: function(feature, latlng){
+            var marker = L.marker(latlng);
+            marker.bindTooltip("prix : " + feature.properties[prix], {
+                permanent: true
+            })
+            return marker;
+        }
+      });
+      let map = L.map('map',{
+        center: [48.665277,2.842252],
+        zoom:9,
+        layers:[geoLayer, layer]
+       });
+      /*  geoLayer.bindPopup(function (layer) {
+           console.log(layer.feature.properties);
+           let prix_essence = layer.feature.properties.e10_prix;
+           return "E10 : " + prix_essence;
+         }); */
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            maxZoom: 15,
+            attribution: '&copy; CartoDB'
+        }).addTo(map);
+
+     };
+   </script>
+ </head>
+ <body>
+   <div id="map"></div>
+ </body>
+</html>

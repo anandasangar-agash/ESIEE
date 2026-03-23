@@ -1,0 +1,14 @@
+Exercice 1 :
+
+1. Le type de s est String. Le compilateur lit la valeur affecté à s pour calculer son type.
+
+2. s1 == s2 affiche true car les deux pointent vers la même adresse.
+   s1 == s3 affihce false car quand on fait new String on créé une nouvelle adresse donc les deux ne pointent pas vers la même adresse.
+
+3. On utilise la méthode equals.
+
+4. Il affiche true car le compilateur quand il va lire les deux valeurs, il va voir qu'ils ont les mêmes valeurs donc il va les pointer vers une seule et même adresse.
+
+5. Il est important que java.lang.String ne soit pas mutable car si on affecte la valeur de s1 à s3 et qu'on modifie s1 par la suite, on ne doit pas modifié s3.
+
+6. Il affiche "hello" car on ne peut pas modifier un String. Pour afficher correctement en majuscule, il faut soit l'affecter à une nouvelle valeur (var s3 = s8.toUpperCase();) ou sinon passer la méthode dans le print (IO.println(s8.toUpperCase());).

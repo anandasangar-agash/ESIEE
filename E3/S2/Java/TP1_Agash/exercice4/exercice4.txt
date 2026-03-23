@@ -1,0 +1,12 @@
+1. La ligne de commande pour compiler Point.java 
+est "javac Point.java".
+
+4. static pour une méthode signifie que la méthode 
+appartient à la classe elle-même, et non à un objet 
+particulier.
+
+5. Si un argument n'est pas un nombre, Integer.parseInt 
+lance l'exception "NumberFormatException".
+
+7. Pour la méthode distance, en paramètre on a un autre point 
+et le type de retour c'est un double. 

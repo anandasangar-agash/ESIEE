@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>TP4</title>
+        <link rel="stylesheet" type="text/css" href="compte-rendu-tp4.css">
+    </head>
+    <body>
+    <div id="content">
+        <div id="contenu">
+                <h1 class="centered">Compte rendu TP4</h1>
+        
+        
+        <h2>Exercice 1 - QGIS - Stratégie de placement des bornes IONITY</h2>
+        <ol>
+            <li>
+                <p>Un CRS est simplement un système qui permet de dire où se trouve un point sur la Terre.
+                WGS 84 est un type de CRS. C'est le standard utilisé en cartographie 2D.</p>
+            </li>
+            <li>
+                <p>
+                La remarque dit qu’EPSG:3857 n’est pas considéré comme un vrai système géodésique, 
+                parce qu’il traite la Terre comme une sphère plutôt que comme un ellipsoïde, comme le fait WGS 84. 
+                Cette simplification entraîne des erreurs : environ 0,7 % sur l’échelle, 
+                et jusqu’à 43 km de différence en northing sur la carte (soit environ 21 km sur le terrain).</p>
+            </li>
+            <li>
+                <p>
+                <strong>Latitude : </strong>48.8533860<br/>
+                <strong>Longitude : </strong>2.3488014
+            </p>
+            </li>
+            <li>
+                <p>
+                <a href="https://www.data.gouv.fr/en/datasets/stations-de-recharge-pour-vehicules-electriques-openstreetmap-opendata/.">
+                    https://www.data.gouv.fr/en/datasets/stations-de-recharge-pour-vehicules-electriques-openstreetmap-opendata/.
+                </a></p>
+            </li>
+            <li>
+                <img src="./question5.png" alt="carte de la France"/>
+            </li>
+            <li>
+                <img width="500px" height="400px" src="./question6.png" alt="carte de la France avec les bornes"/>
+            </li>
+            <li>
+                <p>Le nom de l'opérateur est monautopartage.</p>
+                <img src="./question7.png" alt="borne electrique proche du bâtiment Copernic"/>
+            </li>
+            <li>
+                <p>Voici le filtrage appliqué pour avoir uniquement les bornes gratuites : </p>
+                <img width="550px" height="450px" src="./question8.png" alt="filtre bornes gratuites"/>
+                <p>La borne gratuite la plus proche du bâtiment Copernic est celle qui se trouve 
+                    dans le centre commercial Bay2.
+                </p>
+                <img src="./question8.2.png" alt="borne gratuite la plus proche"/>
+            </li>
+            <li>
+                <p>Voici le filtrage appliqué pour avoir uniquement les bornes IONITY :</p>
+                <img width="450px" height="400px" src="./question9.png" alt="filtre borne IONITY"/>
+                <p>
+                    La stratégie de IONITY pour le placement de ses bornes de recharge est de les placer sur les autoroutes.
+                </p>
+            </li>
+        </ol>
+        <h2>Exercice 2 - QGIS - Prix de l'essence E10 en Seine et Marne</h2>
+        <ol>
+            <li>
+                <img width="700px" height="400px" src="./question1.png" alt="station essence Seine et Marne"/>
+                <br/>
+            </li>
+            <li>
+                <br/>
+                <img width="450px" height="400px"src="./question2.png" alt="prix des stations essences"/>
+            </li>
+            <li>
+                <p>
+                    Les stations les plus chères sont celles qui se trouvent à Nemours où l'essence
+                    coûte 2.039€ car c'est un aire de repos.
+                </p>
+                <img src="./question3.png" alt="station essence Nemours"/>
+            </li>
+            <li>
+                <p>
+                    Si on enlève les stations à Nemours, c'est celle de Vaudoy en Brie qui est la 
+                    station d'essence la plus chère. Le prix de l'essence est à 1.899€. 
+                </p>
+                <img src="./question4.png" alt="station essence Vaudoy en Brie"/>
+                <p>Le filtre appliqué : </p>
+                <img width="450px" height="400px" src="./question4.1.png" alt="filtre"/>
+            </li>
+        </ol>
+        </div>
+    </div>
+    </body>
+</html>

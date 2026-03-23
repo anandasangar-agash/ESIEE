@@ -1,0 +1,16 @@
+2. Le println affiche bien le title et l'author de Book.
+
+3. Le problème c'est que la classe Main n'arrive pas à accéder
+au title et author du Book car c'est privée. On peut les corriger
+en mettant public pour le record Book et en accédant via des accesseurs (book.title()).
+
+4. Pour éviter de créer des livres ayant un titre ou un auteur null, 
+on va lever une exception en ajoutant la méthode requireNonNull 
+dans le constructeur de Book.
+
+7. Le compilateur choisit le constructeur en fonction du nombre et 
+du type des arguments passés lors de l'appel.
+
+8. Le code ne marche pas car Book est un record et dans un record,
+les champs sont final et immutables. À la place on crée un nouvel 
+objet avec la valeur modifiée. 

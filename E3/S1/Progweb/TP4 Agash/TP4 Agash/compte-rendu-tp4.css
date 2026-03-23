@@ -1,0 +1,25 @@
+body{
+    font-family: sans-serif;
+    background-color: #EDE9E6;
+}
+
+div#content {
+    margin: 1em auto 1em auto;
+    width: 90%;
+    border: 1px solid #C4C4C4;
+    background-color: white;
+    text-align: justify;
+}
+
+div#contenu{
+    margin: 1em 1em 1em 1em;
+}
+
+.centered{
+    text-align: center;
+    color: #FF9900;
+}
+
+h2{
+    color: #999966;
+}

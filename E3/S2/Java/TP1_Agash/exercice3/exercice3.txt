@@ -1,0 +1,9 @@
+2. Les variables sont : 
+- args qui est de type String[]
+- scanner qui est de type Scanner 
+- value qui est de type int
+
+3. La ligne import java.util.Scanner indique au compilateur 
+que le programme va utiliser la classe Scanner qui se trouve 
+dans le package java.util. La classe Scanner permet de lire 
+les données à partir d'un clavier. 

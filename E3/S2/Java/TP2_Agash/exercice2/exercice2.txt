@@ -1,0 +1,20 @@
+2. L'objet java.lang.StringBuilder sert à manipuler et modifier des chaînes
+de caractères de façon efficace. La méthode append(String) renvoie l'objet 
+StringBuilder lui-même pour permettre le chaînage des appels de méthodes.
+
+3. Son avantage est qu'il est beaucoup plus efficace pour concaténer des chaînes 
+dans des boucles, car il modifie un seul objet au lieu de créer une nouvelle String
+à chaque opération. 
+
+4. On peut utiliser ' ' car on a qu'une seule caractère et les char peut être
+converti en String. 
+Le bytecode montre que la classe Test possède un constructeur par défaut simple. 
+Dans la méthode main, les trois premiers arguments passés depuis la ligne de commande 
+sont récupérés dans des variables locales. Ces chaînes sont ensuite concaténées en une seule 
+opération grâce à invokedynamic, puis le résultat est affiché avec IO.println.
+
+5. Le bytecode montre que Morse a un constructeur par défaut, que main parcourt tous les arguments 
+avec une boucle, les concatène via invokedynamic et les affiche avec IO.println. 
+On doit utiliser StringBuilder.append() lorsqu'on veut faire une boucle ou 
+une concaténation répétée et il permet d'éviter de créer plein d'objet String.
+Le chargé de TD n’aime pas append("a" + b) car le + crée déjà une nouvelle String, donc on perd l’intérêt de StringBuilder.
