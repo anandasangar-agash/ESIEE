@@ -1,6 +1,9 @@
 #ifndef  __PLATEAU__
 #define __PLATEAU__
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #define NB_COL 4
 #define NB_LIG 4
 
@@ -16,6 +19,10 @@ typedef struct
     Carre bloc[NB_COL][NB_LIG];
 } Plateau;
 
-int InitialisationPlateau(Plateau* P);
+void InitialisationPlateau(Plateau* P);
+
+void MelangerPlateau(Plateau *P);
+
+void ChangeCarre(Plateau *P, int col, int lig);
 
 #endif
