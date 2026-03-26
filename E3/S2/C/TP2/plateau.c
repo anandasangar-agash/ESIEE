@@ -16,28 +16,32 @@ void InitialisationPlateau(Plateau *P)
 }
 
 void MelangerPlateau(Plateau *P) {
-    int i1, j1, i2, j2;
-    Carre tmp;
     int k;
+    int dir;
+    int new_col, new_lig;
+    Carre tmp;
 
-    for (k = 0; k < NB_COL * NB_LIG * 10; k++) {
-        i1 = rand() % NB_COL;
-        j1 = rand() % NB_LIG;
+    for (k = 0; k < 120; k++) {
 
-        i2 = rand() % NB_COL;
-        j2 = rand() % NB_LIG;
+        dir = rand() % 4;
 
-        tmp = P->bloc[i1][j1];
-        P->bloc[i1][j1] = P->bloc[i2][j2];
-        P->bloc[i2][j2] = tmp;
+        new_col = P->vide.col;
+        new_lig = P->vide.lig;
 
-        if (P->vide.col == i1 && P->vide.lig == j1) {
-            P->vide.col = i2;
-            P->vide.lig = j2;
-        }
-        else if (P->vide.col == i2 && P->vide.lig == j2) {
-            P->vide.col = i1;
-            P->vide.lig = j1;
+        if (dir == 0) new_lig--; 
+        if (dir == 1) new_lig++;
+        if (dir == 2) new_col--; 
+        if (dir == 3) new_col++; 
+
+        if (new_col >= 0 && new_col < NB_COL &&
+            new_lig >= 0 && new_lig < NB_LIG) {
+
+            tmp = P->bloc[new_col][new_lig];
+            P->bloc[new_col][new_lig] = P->bloc[P->vide.col][P->vide.lig];
+            P->bloc[P->vide.col][P->vide.lig] = tmp;
+
+            P->vide.col = new_col;
+            P->vide.lig = new_lig;
         }
     }
 }
