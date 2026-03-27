@@ -75,6 +75,13 @@ void jouer_interface(Plateau *P){
 
         dessiner_plateau(P, morceaux, w, h);
 
+        if(est_resolu(P)) {
+            MLV_draw_text(10, 10, "GAGNE !", MLV_COLOR_RED);
+            MLV_actualise_window();
+            MLV_wait_seconds(2);
+            break;
+        }
+
         MLV_actualise_window();
 
         MLV_wait_mouse(&x, &y);

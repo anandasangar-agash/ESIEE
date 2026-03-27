@@ -58,3 +58,16 @@ void ChangeCarre(Plateau *P, int col, int lig) {
         P->vide.lig = lig;
     }
 }
+
+int PlateauGagne(Plateau *P) {
+    int i, j;
+
+    for(i = 0; i < NB_COL; i++) {
+        for(j = 0; j < NB_LIG; j++) {
+            if (P->bloc[i][j].col != i || P->bloc[i][j].lig != j) {
+                return 0;
+            }
+        }
+    }
+    return 1; 
+}

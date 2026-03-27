@@ -25,4 +25,6 @@ void MelangerPlateau(Plateau *P);
 
 void ChangeCarre(Plateau *P, int col, int lig);
 
+int PlateauGagne(Plateau *P);
+
 #endif
