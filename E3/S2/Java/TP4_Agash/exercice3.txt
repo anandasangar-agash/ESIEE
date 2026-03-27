@@ -7,3 +7,9 @@ Sa complexité sera alors O(1).
 
 4. On préfère une classe plutôt qu’un record ici parce que Library représente un objet modifiable.
 
+5. On doit utiliser la méthode values() pour obtenir l'ensemble des valeurs stockées.
+
+6. On remplace HashMap par LinkedHashMap pour garder l'ordre d'insertion.
+
+7. Parce que le forEach utilise en interne un Iterator, et cet iterator détecte toute modification 
+de la collection faite en dehors de lui, donc il lève l'exception ConcurrentModificationException.

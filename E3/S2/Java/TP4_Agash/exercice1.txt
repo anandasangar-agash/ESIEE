@@ -1,1 +1,22 @@
+5. Ctrl + Space lance l'auto-complétion du code.
 
+6. toStr + Ctrl + Space génère la méthode toString().
+
+7. get/set + Ctrl + Space propose de créer les getters et setters du champ foo.
+
+8. Dans le menu Source, il faut cliquer sur Generate Constructor using Fields 
+pour générer un constructeur initialisant le champ foo.
+
+9. Alt + Shift + R renomme la classe ou le champ partout dans le projet.
+
+10. Alt + Shift + L extrait une variable locale.
+
+11. Ctrl + 1 propose des corrections/améliorations.
+
+12. Ctrl + clic sur String ouvre la définition de la classe String.
+
+13. Ctrl + Shift + G recherche toutes les références d'un élément.
+
+14. Ctrl + Shift + F permet de formater le code.
+
+15. Ctrl + Shift + C permet de commenter/décommenter le code.

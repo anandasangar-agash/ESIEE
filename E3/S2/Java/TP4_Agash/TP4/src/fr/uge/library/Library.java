@@ -1,6 +1,6 @@
 package fr.uge.library;
 //import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Library {
 	
@@ -29,10 +29,10 @@ public class Library {
 //		return null;
 //	}
 	
-	private final HashMap<String, Book> books;
+	private final LinkedHashMap<String, Book> books;
 	
 	public Library() {
-		books = new HashMap<String, Book>();
+		books = new LinkedHashMap<String, Book>();
 	}
 	
 	public void add(Book book) {
@@ -41,6 +41,19 @@ public class Library {
 	
 	public Book findByTitle(String title) {
 		return books.get(title);
+	}
+	
+	public void removeAllBooksFromAuthor(String author) {
+		
+//		var iterator = books.values().iterator();
+//		while(iterator.hasNext()) {
+//			var book = iterator.next();
+//			if(book.author().equals(author)) {
+//				iterator.remove();
+//			}
+//		}
+		
+		books.values().removeIf(book -> book.author().equals(author));
 	}
 
 	@Override

@@ -1,6 +1,19 @@
 #include "interface.h"
 
-/* Découpe l'image */
+/**
+ * ============================================================================
+ * FONCTION decouper_image
+ * ============================================================================
+ * Découpe une image en plusieurs morceaux correspondant aux cases du taquin.
+ * Chaque sous-image est stockée dans un tableau 2D.
+ * 
+ * PARAM :
+ *   MLV_Image *image                        - image originale
+ *   MLV_Image* morceaux[NB_COL][NB_LIG]     - tableau de sous-images
+ *   int w                                   - largeur d'un morceau
+ *   int h                                   - hauteur d'un morceau
+ * RETOUR : rien (remplit le tableau morceaux)
+ */
 void decouper_image(MLV_Image *image, MLV_Image* morceaux[NB_COL][NB_LIG], int w, int h){
     int i, j;
     for(i = 0; i < NB_COL; i++){
@@ -14,7 +27,22 @@ void decouper_image(MLV_Image *image, MLV_Image* morceaux[NB_COL][NB_LIG], int w
     }
 }
 
-/* Dessine le plateau */
+/**
+ * ============================================================================
+ * FONCTION dessiner_plateau
+ * ============================================================================
+ * Affiche le plateau du taquin à l'écran :
+ * - Dessine chaque morceau d'image à la bonne position
+ * - Dessine la case vide en noir
+ * - Ajoute un contour autour de chaque case
+ * 
+ * PARAM :
+ *   Plateau *P                              - plateau courant
+ *   MLV_Image* morceaux[NB_COL][NB_LIG]     - images découpées
+ *   int w                                   - largeur d'une case
+ *   int h                                   - hauteur d'une case
+ * RETOUR : rien (affichage graphique)
+ */
 void dessiner_plateau(Plateau *P, MLV_Image* morceaux[NB_COL][NB_LIG], int w, int h){
     int i, j, k;
 
@@ -44,7 +72,16 @@ void dessiner_plateau(Plateau *P, MLV_Image* morceaux[NB_COL][NB_LIG], int w, in
     }
 }
 
-/* Libère les images */
+/**
+ * ============================================================================
+ * FONCTION liberer_morceaux
+ * ============================================================================
+ * Libère la mémoire associée aux sous-images créées lors du découpage.
+ * 
+ * PARAM : 
+ *   MLV_Image* morceaux[NB_COL][NB_LIG] - tableau d'images à libérer
+ * RETOUR : rien (libère la mémoire)
+ */
 void liberer_morceaux(MLV_Image* morceaux[NB_COL][NB_LIG]){
     int i, j;
     for(i = 0; i < NB_COL; i++){
@@ -54,7 +91,21 @@ void liberer_morceaux(MLV_Image* morceaux[NB_COL][NB_LIG]){
     }
 }
 
-/* Fonction principale d'affichage */
+
+/**
+ * ============================================================================
+ * FONCTION jouer_interface
+ * ============================================================================
+ * Fonction principale de l'interface graphique :
+ * - Charge une image
+ * - La découpe en morceaux
+ * - Affiche le plateau en boucle
+ * - Gère les clics souris pour déplacer les cases
+ * - Détecte la victoire et affiche un message
+ * 
+ * PARAM : Plateau *P - plateau du jeu
+ * RETOUR : rien (boucle de jeu graphique)
+ */
 void jouer_interface(Plateau *P){
 
     MLV_Image *image;
