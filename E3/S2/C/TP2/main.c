@@ -12,7 +12,6 @@ int main(int argc, char* argv[]){
     srand(time(NULL));
 
     InitialisationPlateau(&P);
-    MelangerPlateau(&P);
 
     MLV_create_window("Jeu de Taquin", "Jeu de Taquin", 512, 512);
 
