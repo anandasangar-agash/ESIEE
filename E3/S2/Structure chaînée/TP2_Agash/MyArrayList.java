@@ -6,14 +6,14 @@ public class MyArrayList {
 
     public MyArrayList() {
         this(50);
-        size = 0;
     }
 
     public MyArrayList(int initialCapacity){
         if(initialCapacity <= 0){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Capacity must be positive");
         }
         data = new String[initialCapacity];
+        size = 0;
     }
 
     private void ensureCapacity(){
@@ -24,7 +24,7 @@ public class MyArrayList {
 
         var tmp = new String[capacity];
 
-        for(int i=0; i < size; i++){
+        for(int i=0; i < data.length; i++){
             tmp[i] = data[i];
         }
 
@@ -40,23 +40,17 @@ public class MyArrayList {
     }
 
     public void addFirst(String value){
-        if(size == 50){
-            ensureCapacity();
-        }
+        ensureCapacity();
         
         data[size] = value;
         for(int i = size; i > 0; i--){
-            var tmp = data[i-1];
-            data[i-1] = data[i];
-            data[i] = tmp;
+            data[i] = data[i-1];
         }
         size++;
     }
 
     public void addLast(String value){
-        if(size == 50){
-            ensureCapacity();
-        }
+        ensureCapacity();
 
         data[size] = value;
         size++;
@@ -92,7 +86,7 @@ public class MyArrayList {
     public boolean contains(String value){
 
         for(int i=0; i < size; i++){
-            if(data[i] == value){
+            if(data[i].equals(value)){
                 return true;
             }
         }

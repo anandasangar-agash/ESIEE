@@ -15,6 +15,7 @@ public class MainWords {
 
         var words = 0;
         var list = new MyLinkedList();
+        //var list = new MyArrayList();
 
         var start = System.nanoTime();
         while (scanner.hasNext()) {
