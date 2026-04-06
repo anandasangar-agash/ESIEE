@@ -1,0 +1,5 @@
+6. On retourne une ArrayList dans toDestination car on construit une nouvelle collection en parcourant le manifeste 
+et en y ajoutant progressivement les éléments correspondant à la destination.
+
+7. Si on implante checkIsInvalid avec deux boucles imbriquées, on a une complexité de O(n^2) dans le pire des cas.
+   Si on implante avec HashSet, sa complexité est de O(n) dans le pire des cas.

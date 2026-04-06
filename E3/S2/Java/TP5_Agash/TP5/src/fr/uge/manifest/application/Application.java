@@ -36,6 +36,18 @@ public class Application {
 	    manifest4.add(new Passenger("Ana K","Russia"));
 	    var embargoed = manifest4.toDestination("Russia");
 	    IO.println(embargoed);
+	    
+	    var manifest5 = new Manifest();
+	    manifest5.add(new Passenger("James Bond", "UK"));
+	    manifest5.add(new Passenger("James Bond", "Iceland"));
+//	    manifest5.checkIsInvalid();  // boom !
+//
+//	    var manifest6 = new Manifest();
+//	    manifest6.add(new Container("HLLY 345678 5", 30, "Slovenia"));
+//	    manifest6.add(new Container("HLLY 345678 5", 40, "France"));
+//	    manifest6.checkIsInvalid();  // boom !
+	    
+	    
 	}
 
 }

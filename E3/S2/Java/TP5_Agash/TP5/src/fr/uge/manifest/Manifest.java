@@ -6,13 +6,30 @@ public class Manifest {
 
 	private final ArrayList<Ship> elements;
 	
+	private final HashSet<String> identifiers = new HashSet<>();
+	
 	public Manifest(){
 		elements = new ArrayList<>();
 	}
 	
 	public void add(Ship element) {
-		Objects.requireNonNull(element, "element is null");
-		elements.add(element);
+	    Objects.requireNonNull(element, "element is null");
+	    
+	    String id;
+	    
+	    if (element instanceof Passenger passenger) {
+	        id = passenger.name();
+	    } else if (element instanceof Container container) {
+	        id = container.bic();
+	    } else {
+	        throw new IllegalStateException("Unknown element type");
+	    }
+	    
+	    if (!identifiers.add(id)) {
+	        throw new IllegalStateException("Duplicate identifier: " + id);
+	    }
+	    
+	    elements.add(element);
 	}
 	
 	public int totalPrice() {
@@ -32,6 +49,26 @@ public class Manifest {
 		}
 		return list;
 	}
+	
+//	public void checkIsInvalid() {
+//	    var seen = new HashSet<String>();
+//	    
+//	    for (var element : elements) {
+//	        String id;
+//	        
+//	        if (element instanceof Passenger passenger) {
+//	            id = passenger.name();
+//	        } else if (element instanceof Container container) {
+//	            id = container.bic();
+//	        } else {
+//	            continue;
+//	        }
+//	        
+//	        if (!seen.add(id)) {
+//	            throw new IllegalStateException("Duplicate identifier found: " + id);
+//	        }
+//	    }
+//	}
 	
 	@Override
 	public String toString() {
