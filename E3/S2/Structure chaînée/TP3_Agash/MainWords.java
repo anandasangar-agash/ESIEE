@@ -14,7 +14,9 @@ public class MainWords {
         var scanner = new Scanner(file);
 
         var words = 0;
-        var map = new MyHashMap(10000);
+        var map = new MyHashMap();
+
+        IO.println("Before growth capacity: " + map.capacity());
 
         var start = System.nanoTime();
         while (scanner.hasNext()) {
@@ -28,7 +30,9 @@ public class MainWords {
             words++;
         }
         var end = System.nanoTime();
-        IO.println("The file contained " + words + " words and had " + map.getOrDefault("the", 0) + " \"the\" word.");
+
+        IO.println("After growth capacity: " + map.capacity());
+        IO.println("The file contained " + words + " words and had " + map.getOrDefault("the", 0) + " \"the\" word and had " + map.size() + " distinct word");
         IO.println("time (ms): " + (end - start) / 1_000_000.0);
 
         scanner.close();

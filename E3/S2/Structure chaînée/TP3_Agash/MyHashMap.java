@@ -33,20 +33,31 @@ public class MyHashMap {
     }
 
     private void ensureCapacity() {
-        if ((double) size / buckets.length < MAX_LOAD_FACTOR){
+        if ((double) size / buckets.length < MAX_LOAD_FACTOR) {
             return;
         }
 
-        var capacity = buckets.length * GROWTH_FACTOR;
+        int newCapacity = buckets.length * GROWTH_FACTOR;
+        var newBuckets = new Entry[newCapacity];
 
-        var tmp = new Entry[capacity];
+        for (int i = 0; i < buckets.length; i++) {
+            Entry current = buckets[i];
 
-        for(int i = 0; i < buckets.length; i++){
-            var current = buckets[i];
-            while(current != null){
-               tmp[i] = new Entry(current.key, current.value, tmp[i])
+            while (current != null) {
+                var next = current.next; 
+                int newIndex = Math.floorMod(current.key.hashCode(), newCapacity);
+                current.next = newBuckets[newIndex];
+                newBuckets[newIndex] = current;
+
+                current = next;
             }
         }
+
+        buckets = newBuckets;
+    }
+
+    public int capacity(){
+        return buckets.length;
     }
 
     public boolean isEmpty(){
@@ -107,6 +118,7 @@ public class MyHashMap {
     }
 
     public void put(String key, int value){
+        ensureCapacity();
         var index = indexOf(key);
         var current = buckets[index];
         while(current != null){
