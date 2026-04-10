@@ -1,0 +1,16 @@
+digraph tree {
+  splines=false
+  node [shape=record,height=.1]
+  edge [tailclip=false, arrowtail=dot, dir=both];
+
+  n1865859824 [label="<left> | <key> mouton | <right>"];
+  n1865859824:left:c -> n704106237:key;
+  n704106237 [label="<left> | <key> chien | <right>"];
+  n704106237:left:c -> n1880078449:key;
+  n1880078449 [label="<left> | <key> chat | <right>"];
+  n704106237:right:c -> n993370665:key;
+  n993370665 [label="<left> | <key> loup | <right>"];
+  n1865859824:right:c -> n159475521:key;
+  n159475521 [label="<left> | <key> souris | <right>"];
+
+}
