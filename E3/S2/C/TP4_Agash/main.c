@@ -76,12 +76,12 @@ int main(int argc, char* argv[]){
     struct stat sb;
     if (stat(argv[1], &sb) == -1) {
         perror("stat");
-        return EXIT_FAILURE;
+        return 1;
     }
 
     if (!S_ISDIR(sb.st_mode)) {
         fprintf(stderr, "Error: %s is not a directory\n", argv[1]);
-        return EXIT_FAILURE;
+        return 1;
     }
 
     init_array();
