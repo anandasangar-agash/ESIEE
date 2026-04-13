@@ -14,7 +14,7 @@ struct file_info {
 
 
 void init_array(){
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 11; i++){
         array[i].name = NULL;
         array[i].size = 0;
     }
@@ -29,6 +29,10 @@ void swap(struct file_info *a, struct file_info *b){
 void insert_array(char *name, long size){
 
     array[10].name = strdup(name);
+    if (!array[10].name) {
+        perror("strdup");
+        exit(EXIT_FAILURE);
+    }
     array[10].size = size;
     for(int i = 10; i > 0; i--){
         if(array[i].size > array[i-1].size){
@@ -48,23 +52,44 @@ void print_array(){
 
 int fn(const char *fpath, const struct stat *sb, int tflag){
 
-    printf("%s", fpath);
-
-    insert_array((char*)fpath, sb->st_size);
+    if (tflag == FTW_F) {
+        insert_array((char*)fpath, sb->st_size);
+    }
     return 0;
+}
+
+void free_array(){
+    for(int i = 0; i < 11; i++){
+        if(array[i].name != NULL){
+            free(array[i].name);
+        }
+    }
 }
 
 int main(int argc, char* argv[]){
     
-    if(argc < 2){
+    if(argc != 2){
         printf("Directory is missing !! \n");
         return 1;
+    }
+
+    struct stat sb;
+    if (stat(argv[1], &sb) == -1) {
+        perror("stat");
+        return EXIT_FAILURE;
+    }
+
+    if (!S_ISDIR(sb.st_mode)) {
+        fprintf(stderr, "Error: %s is not a directory\n", argv[1]);
+        return EXIT_FAILURE;
     }
 
     init_array();
 
     ftw(argv[1], fn, 2);
+
     print_array();
 
+    free_array();
     return 0;
 }
