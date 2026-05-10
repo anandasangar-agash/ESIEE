@@ -1,0 +1,16 @@
+2. Le type de paramètre de add et le type de retour de lookup doit être Article.
+Si un article existe déjà avec le même nom, la méthode add doit lancer une IllegalArgumentException.
+Si aucun article n'est trouvée, on renvoie null.
+
+4. toText opère sur un objet déjà existant pour produire sa représentation textuelle. 
+fromText au contraire construit un nouvel objet à partir d'une chaîne, elle n'a pas d'objet sur lequel s'appuyer, c'est une factory method, donc statique.
+
+7. Oui, le type Article doit être scellé car on connaît exactement et définitivement les deux sous-types (VideoTape et LaserDisc).
+
+9. On doit utiliser la méthode newBufferedWriter(path) permet de créer un écrivain sur un fichier texte.
+Pour garantir que la ressource est bien libérée, on utilise try-with-resources, le try() appelle close() sur toutes les variables initialisées dans les parenthèses.
+Pour gérer les exceptions d'entrée/sortie, save et load déclarent throws IOException dans leur signature et laissent l'exception remonter à l'appelant. 
+
+11. Une méthode statique ne peut que créer un catalogue vierge depuis un fichier. Une méthode d'instance permet de charger des articles dans un catalogue 
+déjà existant, potentiellement déjà peuplé. On peut ainsi appeler load plusieurs fois sur le même catalogue pour fusionner plusieurs fichiers, 
+ce qui est bien plus flexible.
