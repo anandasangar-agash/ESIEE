@@ -1,0 +1,13 @@
+1. Le type du paramètre de la méthode occurrences est List<String>.
+Le type de retour de la méthode occurrences est Map<String, Integer> avec String le nom de 
+chaque chaîne de caractère et le Integer son nombre d'occurrence.
+
+2. On doit choisir ici HashMap<String, Integer> pour l'implémentation.
+
+3. Elle prend en paramètre l'interface fonctionnelle Consumer<T>. Le type fonction correspondant 
+est T en paramètre et void en retour. Ici le type de paramètre est String et le type de retour 
+est void.
+
+4. La fonction merge prend en troisième paramètre l'interfance fonctionnelle BiFunction<V, V, V>. 
+Le type fonction correspondant est (V, V) et V en retour. Ici le type de paramètre c'est 
+(Integer, Integer) et le type de retour c'est Integer.

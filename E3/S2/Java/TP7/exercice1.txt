@@ -1,0 +1,13 @@
+1. Pour convertir une chaîne en majuscules indépendamment de la langue du système, il faut
+utiliser s.toUpperCase(Local.ROOT) où Local.ROOT correspond à une locale neutre.
+
+2. On doit dupliquer la liste prise en paramètre car on peut recevoir une liste immuable, comme 
+celle créée par List.of(), ou une liste qu'on ne souhaite pas modifier.
+
+3. La méthode replaceAll() utilise l'interface fonctionnelle : UnaryOperator<E>.
+
+4. UnaryOperator<T> représente une fonction qui : prend un argument de type T et renvoie une 
+valeur de type T.
+
+5. Comme la liste contient des String, le type devient UnaryOperator<String>. La lambda prend 
+un String et renvoie un String.
