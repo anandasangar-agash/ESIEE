@@ -1,0 +1,3 @@
+1. Le type de fonction de filter est String -> Boolean. Son interface fonctionnelle est Predicat<String>.
+
+3. Le type de retour de la fonction startsWithNStars est Predicate<String>.

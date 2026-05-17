@@ -1,0 +1,16 @@
+1. Le type de paramètre de actorGroupByFirstName est List<Actor> et le type de retour est 
+Map<String, List<Actor>>.
+
+2. La méthode Map.computeIfAbsent possède en deuxième paramètre une interface fonctionnelle 
+qui est de type Function<T, U> (T -> U). Le premier paramètre de Map.computeIfAbsent 
+correspond la clé qu'on recherche dans une map et le second correspond a une fonction appelée 
+uniquement si la clé n’existe pas encore. Elle crée alors la valeur associée à cette clé.
+Dans notre cas, lorsqu'on va ajouter un acteur, on va vérifier avec son prénom si une clé 
+est déjà présente avec son nom et on ajoute dans la liste sinon on crée une nouvelle liste associée
+à cette clé et on l'ajoute dans la liste. 
+
+3. Le type de la lambda passée en second paramètre de computeIfAbsent doit être List<Actor>.
+
+5. Le type fonction du second paramètre de actorGroupBy est Actor -> String.
+L'interface fonctionnelle correspondante est Function<Actor, String>. 
+Le type du second paramètre de actorGroupBy est function. 
