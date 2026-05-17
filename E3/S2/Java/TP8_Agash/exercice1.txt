@@ -1,0 +1,5 @@
+1. L'interface fonctionnelle prise en paramètre de filter est Predicate<T>. Les types de paramètre et de retour de la lambda sont T et boolean, dans notre cas 
+la lambda prend Person et renvoie un boolean.
+
+2. L'interface fonctionnelle prise en paramètre de map est Function<T, R>. Les types de paramètre et de retour de la lambda sont T et R, dans notre cas 
+la lambda prend Person et renvoie un String.
