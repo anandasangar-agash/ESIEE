@@ -1,0 +1,10 @@
+digraph tree {
+  splines=false
+  node [shape=record,height=.1]
+  edge [tailclip=false, arrowtail=dot, dir=both];
+
+  n648786246 [label="<left> |{ <key> mouton|1 }| <right>"];
+  n648786246:left:c -> n1902671237:key;
+  n1902671237 [label="<left> |{ <key> loup|0 }| <right>"];
+
+}
