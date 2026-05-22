@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <style>
+     td.cell {
+         padding: 5px;
+         margin: 2px;
+         width: 60px;
+         height: 60px;
+         border: 1px solid #ccc;
+     }
+     .sand {
+         background-color: lightyellow;
+     }
+     .treasure {  /* if a treasure is present */
+         background-color: lightcoral;
+     }
+     .dug {      /* if no treasure is present, but the sand was dug */
+         background-color: lightgray;
+     }
+   </style>
+   <script>
+     "use strict";
+
+     class TreasureMap {
+        constructor(height, width){
+            this.width = width;
+            this.height = height;
+
+            const grid = [];
+
+            for(let i = 0; i < height; i++){
+                const column = []
+                for(let j = 0; j < width; j++){
+                    column.push(new Cell());
+                }
+                grid.push(column);
+            }
+
+            this.grid = grid;
+        }
+
+
+        checkIndex(x, y){
+           if(x < 0 || x >= this.height || y < 0 || y >= this.width){
+                throw new Error("Indices hors limites !!!");
+            } 
+        }
+
+        hasTreasure(x, y){
+            this.checkIndex(x, y);
+            return this.grid[x][y].treasure;
+        }
+
+        isDug(x, y){
+            this.checkIndex(x, y);
+            return this.grid[x][y].dug;
+        }
+
+        setTreasure(x, y){
+            this.checkIndex(x, y);
+            this.grid[x][y].treasure = true;
+        }
+
+        setDug(x, y){
+            this.checkIndex(x, y);
+            this.grid[x][y].dug = true;
+        }
+
+        hasDug(x,y){
+            this.checkIndex(x, y);
+            return this.grid[x][y].dug;
+        }
+     }
+
+     class Cell {
+        constructor(){
+            this.treasure = false;
+            this.dug = false;
+        }
+     }
+
+     function render(TreasureMap){
+
+        const table = document.getElementById("view");
+        for(let i = 0; i < TreasureMap.height; i++){
+            const tr = document.createElement("TR");
+            for(let j = 0; j < TreasureMap.width; j++){
+                const td = document.createElement("TD");
+                td.classList.add("cell");
+
+                td.onclick = () => {
+                    console.log("Cell click : ", i, j);
+                   
+                }
+
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+     }
+
+     //const treasureMap = ...
+   
+     window.onload = () => {
+         console.log("onload !");
+
+         let treasure = new TreasureMap(6, 4);
+
+         console.log("Height : ", treasure.height);
+         console.log("Width : ", treasure.width);
+
+         treasure.setTreasure(3, 2);
+         console.log("There is Treasure ? ", treasure.hasTreasure(3, 2));
+
+         treasure.setDug(4, 1);
+         console.log("Dug box ? ", treasure.hasDug(4, 1));
+
+         render(treasure);
+     };
+   </script>
+ </head>
+ <body>
+  <h2>Treasure Map</h2>
+  <table id="view"></table>
+ </body>
+</html>
