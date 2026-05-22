@@ -84,15 +84,35 @@
      function render(TreasureMap){
 
         const table = document.getElementById("view");
+        table.innerHTML = "";
+        
         for(let i = 0; i < TreasureMap.height; i++){
             const tr = document.createElement("TR");
             for(let j = 0; j < TreasureMap.width; j++){
                 const td = document.createElement("TD");
                 td.classList.add("cell");
 
+                if(!TreasureMap.isDug(i, j)){
+                    td.classList.add("sand");
+                }
+                else if(TreasureMap.hasTreasure(i, j)){
+                    td.classList.add("treasure");
+                }
+                else{
+                    td.classList.add("dug");
+                }
+
                 td.onclick = () => {
                     console.log("Cell click : ", i, j);
                    
+                    TreasureMap.setDug(i, j);
+
+                    const oldTable = document.getElementById("view");
+                    const newTable = document.createElement("table");
+                    newTable.id = "view";
+                    oldTable.parentElement.replaceChild(newTable, oldTable);
+
+                    render(TreasureMap);
                 }
 
                 tr.appendChild(td);
@@ -113,9 +133,6 @@
 
          treasure.setTreasure(3, 2);
          console.log("There is Treasure ? ", treasure.hasTreasure(3, 2));
-
-         treasure.setDug(4, 1);
-         console.log("Dug box ? ", treasure.hasDug(4, 1));
 
          render(treasure);
      };
