@@ -4,15 +4,15 @@ import java.util.Objects;
 import java.util.StringJoiner;
 import java.util.function.Consumer;
 
-public class LinkedLink {
+public class LinkedLink<E> {
 
-	private Link head;
+	private Link<E> head;
 	
 	private int size;
 	
-	public void add(Object value) {
+	public void add(E value) {
 		Objects.requireNonNull(value);
-		var link = new Link(value, head);
+		var link = new Link<E>(value, head);
 		head = link;
 		size++;
 	}
@@ -21,7 +21,7 @@ public class LinkedLink {
 		return size;
 	}
 	
-	public Object get(int i) {
+	public E get(int i) {
 //		if (size == 0) {
 //            throw new IllegalStateException("get(i) on empty list");
 //        } ==> Pas nécessaire car ça renvoie déjà une erreur
@@ -37,7 +37,8 @@ public class LinkedLink {
 	}
 	
 	
-	public void forEach(Consumer<Object> consumer) {
+	public void forEach(Consumer<E> consumer) {
+		Objects.requireNonNull(consumer);
 		var current = head;
 		while(current != null) {
 			consumer.accept(current.value());

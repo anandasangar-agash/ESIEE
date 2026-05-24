@@ -1,0 +1,2 @@
+2. Le code suivant ne fonctionne pas car quand on a remplacé le int par Object, la méthode forEach reçoit une lambda de type Consumer<Object> (le s dans 
+le forEach est de type Object) or la méthode s.length() n'existe pas dans la classe Object. Pour régler ce problème il faut caster s par String.
