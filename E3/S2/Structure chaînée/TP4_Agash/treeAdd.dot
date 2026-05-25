@@ -3,16 +3,14 @@ digraph tree {
   node [shape=record,height=.1]
   edge [tailclip=false, arrowtail=dot, dir=both];
 
-  n788625466 [label="<left> | <key> B | <right>"];
-  n788625466:right:c -> n1753714541:key;
-  n1753714541 [label="<left> | <key> N | <right>"];
-  n1753714541:right:c -> n1095273238:key;
-  n1095273238 [label="<left> | <key> U | <right>"];
-  n1095273238:left:c -> n177140066:key;
-  n177140066 [label="<left> | <key> I | <right>"];
-  n1095273238:right:c -> n787122337:key;
-  n787122337 [label="<left> | <key> Z | <right>"];
-  n787122337:left:c -> n2059572982:key;
-  n2059572982 [label="<left> | <key> H | <right>"];
+  n195801026 [label="<left> | <key> U | <right>"];
+  n195801026:left:c -> n833474933:key;
+  n833474933 [label="<left> | <key> S | <right>"];
+  n833474933:left:c -> n182670350:key;
+  n182670350 [label="<left> | <key> P | <right>"];
+  n182670350:left:c -> n1611373863:key;
+  n1611373863 [label="<left> | <key> A | <right>"];
+  n1611373863:right:c -> n914942811:key;
+  n914942811 [label="<left> | <key> F | <right>"];
 
 }

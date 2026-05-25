@@ -1,6 +1,11 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 public class Main {
 
-    static void main() {
+    static void main(String[] args) throws FileNotFoundException {
 
         var bst = new MyBST();
         IO.println("size = " + bst.size());
@@ -50,6 +55,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        IO.println("Insertion dans l'ordre");
 
         N = 50000;
         newBst = new MyBST();
@@ -62,5 +68,47 @@ public class Main {
 
        IO.println("time (ms): " + (end - start) / 1_000_000.0);
        IO.println("hauteur : " + newBst.height());
+
+
+       IO.println("Insertion aléatoire");
+
+       N = 50000;
+       newBst = new MyBST();
+       var list = new ArrayList<String>();
+       for (int i = 0; i < N; i++) {
+            list.add(String.format("%06d", i));
+        }
+        Collections.shuffle(list);
+
+        start = System.nanoTime();
+         for (var key : list) {
+            newBst.add(key);
+        }
+        end = System.nanoTime();
+        IO.println("time (ms): " + (end - start) / 1_000_000.0);
+        IO.println("hauteur : " + newBst.height());
+
+        IO.println("Insertion de mots");
+
+        if(args[0] == null){
+             throw new IndexOutOfBoundsException();
+        }
+
+        var file = new File(args[0]);
+        var scanner = new Scanner(file);
+
+        newBst = new MyBST();
+
+        start = System.nanoTime();
+        while (scanner.hasNext()) {
+            String word = scanner.next();
+            newBst.add(word);
+        }
+        end = System.nanoTime();
+
+        IO.println("time (ms): " + (end - start) / 1_000_000.0);
+        IO.println("hauteur : " + newBst.height());
+
+        scanner.close();
     }
 }

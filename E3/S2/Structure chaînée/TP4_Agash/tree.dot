@@ -3,14 +3,14 @@ digraph tree {
   node [shape=record,height=.1]
   edge [tailclip=false, arrowtail=dot, dir=both];
 
-  n1865859824 [label="<left> | <key> mouton | <right>"];
-  n1865859824:left:c -> n704106237:key;
-  n704106237 [label="<left> | <key> chien | <right>"];
-  n704106237:left:c -> n1880078449:key;
-  n1880078449 [label="<left> | <key> chat | <right>"];
-  n704106237:right:c -> n993370665:key;
-  n993370665 [label="<left> | <key> loup | <right>"];
-  n1865859824:right:c -> n159475521:key;
-  n159475521 [label="<left> | <key> souris | <right>"];
+  n2144284609 [label="<left> | <key> mouton | <right>"];
+  n2144284609:left:c -> n68326648:key;
+  n68326648 [label="<left> | <key> chien | <right>"];
+  n68326648:left:c -> n35984028:key;
+  n35984028 [label="<left> | <key> chat | <right>"];
+  n68326648:right:c -> n541285440:key;
+  n541285440 [label="<left> | <key> loup | <right>"];
+  n2144284609:right:c -> n1463355115:key;
+  n1463355115 [label="<left> | <key> souris | <right>"];
 
 }

@@ -3,8 +3,24 @@ digraph tree {
   node [shape=record,height=.1]
   edge [tailclip=false, arrowtail=dot, dir=both];
 
-  n648786246 [label="<left> |{ <key> mouton|1 }| <right>"];
-  n648786246:left:c -> n1902671237:key;
-  n1902671237 [label="<left> |{ <key> loup|0 }| <right>"];
+  n1808432653 [label="<left> |{ <key> mouton|3 }| <right>"];
+  n1808432653:left:c -> n680988889:key;
+  n680988889 [label="<left> |{ <key> chien|2 }| <right>"];
+  n680988889:left:c -> n1077873186:key;
+  n1077873186 [label="<left> |{ <key> chat|1 }| <right>"];
+  n1077873186:left:c -> n1771421544:key;
+  n1771421544 [label="<left> |{ <key> abeille|0 }| <right>"];
+  n680988889:right:c -> n1346292516:key;
+  n1346292516 [label="<left> |{ <key> loup|0 }| <right>"];
+  n1808432653:right:c -> n1280429864:key;
+  n1280429864 [label="<left> |{ <key> souris|2 }| <right>"];
+  n1280429864:left:c -> n896072146:key;
+  n896072146 [label="<left> |{ <key> renard|1 }| <right>"];
+  n896072146:left:c -> n1908571880:key;
+  n1908571880 [label="<left> |{ <key> ours|0 }| <right>"];
+  n1280429864:right:c -> n2005028997:key;
+  n2005028997 [label="<left> |{ <key> tigre|1 }| <right>"];
+  n2005028997:right:c -> n1363396194:key;
+  n1363396194 [label="<left> |{ <key> zebre|0 }| <right>"];
 
 }

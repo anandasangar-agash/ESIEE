@@ -128,9 +128,8 @@ public class MyAVL {
 
         if(balance(node) == -2){
             if(balance(node.right) == 1){
-            node.right = rotateRight(node.right);
-           
-            } 
+                node.right = rotateRight(node.right);
+            }
             node = rotateLeft(node);
         }
 
@@ -142,7 +141,7 @@ public class MyAVL {
     }
 
     public void add(String key){
-        add(root, key);
+        root = add(root, key);
     }
 
     private TreeNode add(TreeNode node, String key){
@@ -165,6 +164,23 @@ public class MyAVL {
 
         updateHeight(node);
         return rebalance(node);
+    }
+
+
+    public boolean isAVL() {
+        return isAVL(root);
+    }
+
+    private static boolean isAVL(TreeNode node) {
+        if (node == null) return true;
+
+        int expectedHeight = 1 + Math.max(height(node.left), height(node.right));
+        if (node.height != expectedHeight) return false;
+
+        int b = balance(node);
+        if (b < -1 || b > 1) return false;
+
+        return isAVL(node.left) && isAVL(node.right);
     }
 
     /* DOT VISUALIZATION */
