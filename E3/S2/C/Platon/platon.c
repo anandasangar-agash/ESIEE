@@ -67,3 +67,67 @@ int make_date(void){
 
     return (988 << 12) | (4 << 6) | 22;
 }
+
+
+
+/* Entraînement pour platon 2 */
+
+typedef struct Etudiant {
+    char *prenom;
+    char *filiere;
+    struct Etudiant *suivant;
+} Etudiant;
+
+
+Etudiant* alloue_etudiant(char* prenom, char* filiere){
+
+    Etudiant* etudiant = malloc(sizeof(Etudiant));
+    if(etudiant == NULL) return NULL;
+
+    etudiant->prenom = malloc((strlen(prenom)+1)*sizeof(char));
+    etudiant->filiere = malloc((strlen(filiere)+1)*sizeof(char));
+
+    if(etudiant->prenom == NULL || etudiant->filiere == NULL){
+        return NULL;
+    }
+
+    strcpy(etudiant->prenom, prenom);
+    strcpy(etudiant->filiere, filiere);
+    etudiant->suivant = NULL;
+
+    return etudiant;
+}
+
+int** int_tab2d(int nb_line, int nb_col){
+
+    int** tab = malloc(nb_line*sizeof(int*));
+    if(tab == NULL) return NULL;
+    int i;
+
+    for(i=0; i < nb_line; i++){
+        tab[i] = malloc(nb_col*sizeof(int));
+        if(tab[i] == NULL) return NULL;
+        int j;
+        for(j = 0; j < nb_col; j++){
+            tab[i][j] = 0;
+        }
+    }
+
+    return tab;
+}
+
+
+int make_date(void){
+    return (2003 << 12) | (3 << 6) | 14;
+}
+
+int has_pattern(unsigned int n){
+
+    int i;
+    for(i = 0; i < 8*sizeof(unsigned int) -3; i++){
+        if(((n >> i) & (unsigned int)15) == (unsigned int)10){
+            return 1;
+        }
+    }
+    return 0;
+}

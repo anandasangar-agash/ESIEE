@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <style>
+       div.row {
+            clear: both;
+       }
+       div.cell {
+            width: 64px;
+            height: 64px;
+            margin: 2px;
+            float: left;
+
+            border: 1px solid black;
+
+            background-size: cover;
+            background-position: center;
+       }
+       .sand {
+            background-image: url(sand.png);
+       }
+       .treasure {  /* if a treasure is present */
+            background-image: url(sand-chest.png);
+       }
+       .dug {      /* if no treasure is present, but the sand was dug */
+            background-image: url(sand-hole.png);
+       }
+   </style>
+   <script>
+     "use strict";
+
+     const SAND_EMPTY = 0;
+     const SAND_TREASURE = 1;
+     const DUG_EMPTY = 2;
+     const DUG_TREASURE = 3;
+
+     class Cell {
+
+            constructor(){
+                this.state = SAND_EMPTY;
+            }
+        }
+
+        class TreasureMap {
+
+            constructor(width, height){
+
+                this.width = width;
+                this.height = height;
+
+                this.grid = [];
+
+                for(let i = 0; i < height; i++){
+
+                    const column = [];
+
+                    for(let j = 0; j < width; j++){
+                        column.push(new Cell());
+                    }
+
+                    this.grid.push(column);
+                }
+            }
+
+            checkIndex(x, y){
+                if(x < 0 || x >= this.width || y < 0 || y >= this.height){
+                    throw new Error("Indices hors limites !");
+                }
+            }
+
+            hasTreasure(x, y){
+                this.checkIndex(x, y);
+                return this.grid[y][x].state == SAND_TREASURE || this.grid[y][x].state == DUG_TREASURE;
+            }
+
+            isDug(x, y){
+                this.checkIndex(x, y);
+                return this.grid[y][x].state >= DUG_EMPTY;
+            }
+
+            setTreasure(x, y){
+                this.grid[y][x].state = SAND_TREASURE;
+            }
+        }
+
+        function render(treasureMap){
+
+            const view = document.getElementById("view");
+
+            view.innerHTML = "";
+
+            for(let y = 0; y < treasureMap.height; y++){
+
+                const row = document.createElement("DIV");
+                row.classList.add("row");
+
+                for(let x = 0; x < treasureMap.width; x++){
+
+                    const cellDiv = document.createElement("DIV");
+                    cellDiv.classList.add("cell");
+
+                    if(!treasureMap.isDug(x,y)){
+                        cellDiv.classList.add("sand");
+                    }
+                    else if(treasureMap.hasTreasure(x,y)){
+                        cellDiv.classList.add("treasure");
+                    }
+                    else{
+                        cellDiv.classList.add("dug");
+                    }
+
+                    cellDiv.onclick = () => {
+                        console.log("Cell click :", x, y);
+                        if(!treasureMap.isDug(x, y)){
+                            treasureMap.grid[y][x].state += 2;
+                        }
+                        const oldView = document.getElementById("view");
+                        const newView = document.createElement("DIV");
+                        newView.id = "view";
+                        oldView.parentElement.replaceChild(newView, oldView);
+
+                        render(treasureMap)
+                    };
+
+                    row.appendChild(cellDiv);
+                }
+
+                view.appendChild(row);
+            }
+        }
+
+     window.onload = () => {
+       console.log("onload !");
+
+            const treasureMap = new TreasureMap(6, 4);
+
+            const x = Math.floor(Math.random() * treasureMap.width);
+
+            const y = Math.floor(Math.random() * treasureMap.height);
+
+            treasureMap.setTreasure(x, y);
+
+            console.log("Treasure position :", x, y);
+
+            render(treasureMap);
+     };
+   </script>
+ </head>
+ <body>
+  <h2>Treasure Map (2)</h2>
+  <div id="view"></div>
+ </body>
+</html>

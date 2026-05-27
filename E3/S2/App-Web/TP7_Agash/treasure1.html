@@ -24,15 +24,15 @@
      "use strict";
 
      class TreasureMap {
-        constructor(height, width){
+        constructor(width, height){
             this.width = width;
             this.height = height;
 
             const grid = [];
 
-            for(let i = 0; i < height; i++){
+            for(let i = 0; i < width; i++){
                 const column = []
-                for(let j = 0; j < width; j++){
+                for(let j = 0; j < height; j++){
                     column.push(new Cell());
                 }
                 grid.push(column);
@@ -43,7 +43,7 @@
 
 
         checkIndex(x, y){
-           if(x < 0 || x >= this.height || y < 0 || y >= this.width){
+           if(x < 0 || x >= this.width || y < 0 || y >= this.height){
                 throw new Error("Indices hors limites !!!");
             } 
         }
@@ -92,10 +92,10 @@
                 const td = document.createElement("TD");
                 td.classList.add("cell");
 
-                if(!TreasureMap.isDug(i, j)){
+                if(!TreasureMap.isDug(j, i)){
                     td.classList.add("sand");
                 }
-                else if(TreasureMap.hasTreasure(i, j)){
+                else if(TreasureMap.hasTreasure(j, i)){
                     td.classList.add("treasure");
                 }
                 else{
@@ -103,9 +103,9 @@
                 }
 
                 td.onclick = () => {
-                    console.log("Cell click : ", i, j);
+                    console.log("Cell click : ", j, i);
                    
-                    TreasureMap.setDug(i, j);
+                    TreasureMap.setDug(j, i);
 
                     const oldTable = document.getElementById("view");
                     const newTable = document.createElement("table");
@@ -128,8 +128,8 @@
 
          let treasure = new TreasureMap(6, 4);
 
-         console.log("Height : ", treasure.height);
          console.log("Width : ", treasure.width);
+         console.log("Height : ", treasure.height);
 
          treasure.setTreasure(3, 2);
          console.log("There is Treasure ? ", treasure.hasTreasure(3, 2));

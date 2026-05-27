@@ -3,24 +3,24 @@ digraph tree {
   node [shape=record,height=.1]
   edge [tailclip=false, arrowtail=dot, dir=both];
 
-  n1808432653 [label="<left> |{ <key> mouton|3 }| <right>"];
-  n1808432653:left:c -> n680988889:key;
-  n680988889 [label="<left> |{ <key> chien|2 }| <right>"];
-  n680988889:left:c -> n1077873186:key;
-  n1077873186 [label="<left> |{ <key> chat|1 }| <right>"];
-  n1077873186:left:c -> n1771421544:key;
-  n1771421544 [label="<left> |{ <key> abeille|0 }| <right>"];
-  n680988889:right:c -> n1346292516:key;
-  n1346292516 [label="<left> |{ <key> loup|0 }| <right>"];
-  n1808432653:right:c -> n1280429864:key;
-  n1280429864 [label="<left> |{ <key> souris|2 }| <right>"];
-  n1280429864:left:c -> n896072146:key;
-  n896072146 [label="<left> |{ <key> renard|1 }| <right>"];
-  n896072146:left:c -> n1908571880:key;
-  n1908571880 [label="<left> |{ <key> ours|0 }| <right>"];
-  n1280429864:right:c -> n2005028997:key;
-  n2005028997 [label="<left> |{ <key> tigre|1 }| <right>"];
-  n2005028997:right:c -> n1363396194:key;
-  n1363396194 [label="<left> |{ <key> zebre|0 }| <right>"];
+  n337533935 [label="<left> |{ <key> mouton|3 }| <right>"];
+  n337533935:left:c -> n1932597611:key;
+  n1932597611 [label="<left> |{ <key> chien|2 }| <right>"];
+  n1932597611:left:c -> n1355887174:key;
+  n1355887174 [label="<left> |{ <key> chat|1 }| <right>"];
+  n1355887174:left:c -> n1027495011:key;
+  n1027495011 [label="<left> |{ <key> abeille|0 }| <right>"];
+  n1932597611:right:c -> n735085430:key;
+  n735085430 [label="<left> |{ <key> loup|0 }| <right>"];
+  n337533935:right:c -> n242282810:key;
+  n242282810 [label="<left> |{ <key> souris|2 }| <right>"];
+  n242282810:left:c -> n1118840610:key;
+  n1118840610 [label="<left> |{ <key> renard|1 }| <right>"];
+  n1118840610:left:c -> n224591451:key;
+  n224591451 [label="<left> |{ <key> ours|0 }| <right>"];
+  n242282810:right:c -> n1262548561:key;
+  n1262548561 [label="<left> |{ <key> tigre|1 }| <right>"];
+  n1262548561:right:c -> n1688470144:key;
+  n1688470144 [label="<left> |{ <key> zebre|0 }| <right>"];
 
 }
