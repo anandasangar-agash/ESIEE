@@ -71,7 +71,7 @@ public class Main {
         IO.println("time (ms): " + (end - start) / 1_000_000.0);
         IO.println("hauteur : " + newAvl.height());
 
-        IO.println("Insertion de mots avec big.txt");
+        IO.println("Insertion de mots");
 
         if(args[0] == null){
              throw new IndexOutOfBoundsException();
@@ -79,29 +79,6 @@ public class Main {
 
         var file = new File(args[0]);
         var scanner = new Scanner(file);
-
-        newAvl = new MyAVL();
-
-        start = System.nanoTime();
-        while (scanner.hasNext()) {
-            String word = scanner.next();
-            newAvl.add(word);
-        }
-        end = System.nanoTime();
-
-        IO.println("time (ms): " + (end - start) / 1_000_000.0);
-        IO.println("hauteur : " + newAvl.height());
-
-        scanner.close();
-
-        IO.println("Insertion de mots avec enwik8");
-
-        if(args[1] == null){
-             throw new IndexOutOfBoundsException();
-        }
-
-        file = new File(args[1]);
-        scanner = new Scanner(file);
 
         newAvl = new MyAVL();
 
