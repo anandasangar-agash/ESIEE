@@ -1,0 +1,6 @@
+4. Il faut passer l'interface Expr en une interface scellée.
+
+6. On doit utiliser l'interface Iterator<E> à la place de Scanner. 
+
+10. Polymorphisme quand on prévoit d'ajouter souvent de nouveaux types (on ajoute juste une nouvelle classe sans toucher aux autres). 
+Pattern matching quand on prévoit d'ajouter souvent de nouvelles opérations (on ajoute juste un nouveau switch sans toucher aux types).

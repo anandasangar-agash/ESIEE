@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>TP8</title>
+        <link rel="stylesheet" type="text/css" href="compte-rendu-tp8.css">
+    </head>
+    <body>
+    <div id="content">
+        <div id="contenu">
+                <h1 class="centered">Compte rendu TP8</h1>
+        
+        
+        <h2>Exercie 1 - Agenda</h2>
+        <ol>
+            <li class="question">
+                La classe Event permet d'initialiser un nouveau événement avec la date, l'occupation et le lieu et la classe Agenda permet d'ajouter 
+                l'événement dans la liste. </br>
+                </br>
+                La fonction render permet d'afficher la vue de l'agenda avec tous les événements et replaceView permet de remplacer la vue existante par 
+                par une nouvelle vue lorsqu'on ajoute un événement. </br>
+                </br>
+                Les avantages de cette technique sont plus lisible et plus facile à écrire.
+                L'inconvénient de cette technique c'est qu'il est moins performant, donc plus lent car on doit parser le String en HTML. </br>
+                </br>
+                La ligne e.preventDefault() sert à empêcher le comportement par défaut du formulaire.
+            </li>
+            <li class="question">
+                Les objets JSON bruts peuvent avoir des champs en plus ou en moins, ou mal nommés. C'est pour ça qu'avec Event, on vérifie bien si on a bien les champs 
+                qu'on attend (id, when, what, where).
+            </li>
+            <li value="4" class="question">
+                On doit ajouter la méthode removeEvent dans la classe Agenda.
+            </li>
+            <li value="5" class="question">
+                Dans la classe Agenda, on va ajouter un champ editingId qui vaut null au départ et lorsqu'on va cliquer sur le bouton edit d'un Event, 
+                on affecte son id et on affiche le formulaire pour éditer. 
+            </li>
+            <li value="7" class="question">
+                Dans la classe Agenda, on ajoute un Set appelé pendingIds. Avant l'appel au serveur on y ajoute l'id, on le retire quand on a reçu la réponse.</br>
+                Dans la méthode vue, on va vérifier pour chaque Event, si son id se trouve dans pendingIds, si c'est le cas on désactive les boutons de cet Event jusqu'à 
+                qu'on reçoit la réponse.  
+            </li>
+        </ol>
+    </div>
+    </body>
+</html>
