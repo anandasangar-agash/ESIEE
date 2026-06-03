@@ -22,7 +22,7 @@ public class MyHeap {
     }
 
     static int parent(int i){
-        return (i-2) / 2;
+        return (i-1) / 2;
     }
 
     static int left(int i){
@@ -85,5 +85,24 @@ public class MyHeap {
         return min;
     }
 
-    public static void heapSortByInsertion(int[] tab){}
+    public static void heapSortByInsertion(int[] tab) {
+        MyHeap heap = new MyHeap(tab.length);
+        
+        for (int value : tab) {
+            heap.add(value);
+        }
+        
+        for (int i = 0; i < tab.length; i++) {
+            tab[i] = heap.remove();
+        }
+    }
+
+    public boolean isHeap() {
+        for (int i = 1; i < size; i++) {
+            if (tree[parent(i)] > tree[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
