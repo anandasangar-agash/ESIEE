@@ -1,0 +1,20 @@
+digraph tree {
+  splines=false
+  node [shape=record,height=.1]
+  edge [tailclip=false, arrowtail=dot, dir=both];
+
+  n1163619825 [label="<left> | <key> I | <right>"];
+  n1163619825:left:c -> n1306246648:key;
+  n1306246648 [label="<left> | <key> E | <right>"];
+  n1163619825:right:c -> n1063737662:key;
+  n1063737662 [label="<left> | <key> P | <right>"];
+  n1063737662:right:c -> n447767121:key;
+  n447767121 [label="<left> | <key> S | <right>"];
+  n447767121:left:c -> n68857875:key;
+  n68857875 [label="<left> | <key> N | <right>"];
+  n447767121:right:c -> n348055829:key;
+  n348055829 [label="<left> | <key> Y | <right>"];
+  n348055829:left:c -> n286649365:key;
+  n286649365 [label="<left> | <key> M | <right>"];
+
+}
