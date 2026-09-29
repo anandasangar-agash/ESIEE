@@ -1,0 +1,136 @@
+Exercice 2.
+
+2. static Article parseArticle(String line) {
+        Objects.requireNonNull(line);
+
+        var tab = line.split(",", -1);
+
+        if (tab.length != 3) {
+            throw new IllegalArgumentException("invalid article: " + line);
+        }
+
+        var article = tab[0];
+        var quantity = Integer.parseInt(tab[1]);
+        var value = tab[2];
+
+        return switch (article) {
+            case "lego" -> new Lego(quantity, value);
+            case "beer" -> new Beer(quantity, BeerKind.valueOf(value.toUpperCase(Locale.ROOT)));
+            default -> throw new IllegalArgumentException("Unexpected value : " + article);
+        };
+    }
+    
+ 3. public static List<Article> readArticlesFromFile(Path file) throws IOException {
+    Objects.requireNonNull(file);
+    var list = new ArrayList<Article>();
+    try (var lines = Files.lines(file)) {
+        lines.filter(line -> !line.isBlank()).map(line -> Article.parseArticle(line)).forEach(list::add);
+    }
+    return List.copyOf(list);
+  }
+  
+ 4. printReceipt n'as pas besoin d'être une méthode publique car c'est une méthode d'aide.
+ main doit être publique car c'est elle qui va permettre de lancer le programme.
+    static void printReceipt(List<Article> articles) {
+	  var sum = 0L;
+	  for (var article : articles) {
+	    sum += article.price();
+	  }
+	  IO.println("sum: " + sum);
+	}
+
+	public static void main(String[] args) {
+	  if (args.length != 1) {
+	    System.err.println("Usage: java LegoAndBeer <file>");
+	    System.exit(1);
+	    return;
+	  }
+	  List<Article> articles;
+	  try {
+	    articles = readArticlesFromFile(Path.of(args[0]));
+	  } catch (IOException | IllegalArgumentException e) {
+	    System.err.println(e.getMessage());
+	    System.exit(1);
+	    return;
+	  }
+	  printReceipt(articles);
+	}
+	
+5. On utilise le polymorphisme quand la hiérarchie de classes est ouverte et qu'on veut attacher le comportement directement à l'objet. 
+On utilise le pattern matching quand la structure de données est fermée et qu'on veut traiter les données depuis l'extérieur en fonction de leur type.
+  static void printReceipt(List<Article> articles) {
+	  var sum = 0L;
+	  for (var article : articles) {
+	    sum += switch (article) {
+	      case Lego(int quantity, String name) -> (long) quantity * name.length() * 20;
+	      case Beer(int quantity, BeerKind kind) ->
+	          kind == BeerKind.BLONDE ? (long) quantity : 3L * quantity;
+	    };
+	  }
+	  IO.println("sum: " + sum);
+	}
+	
+6. static void printReceipt(List<Article> articles) {
+	  var sum = 0L;
+	  for (var article : articles) {
+	    sum += switch (article) {
+	      case Lego(int quantity, String name) -> (long) quantity * name.length() * 20;
+	      case Beer(int quantity, BeerKind kind) ->
+	          kind == BeerKind.BLONDE ? (long) quantity : 3L * quantity;
+	    };
+	  }
+	  IO.println("sum: " + sum);
+	  
+	  var partition = articles.stream().collect(Collectors.partitioningBy(article -> switch (article) {
+		  case Lego _ -> true;
+		  case Beer _ -> false;
+		}));
+		
+	  partition.get(true).stream()
+	      .map(article -> (Lego) article)
+	      .max(Comparator.comparingInt((Lego lego) -> lego.name().length()))
+	      .ifPresent(lego -> IO.println("max lego: " + lego.name()));
+	}
+	
+7. static void printReceipt(List<Article> articles) {
+	  var sum = 0L;
+	  for (var article : articles) {
+	    sum += switch (article) {
+	      case Lego(int quantity, String name) -> (long) quantity * name.length() * 20;
+	      case Beer(int quantity, BeerKind kind) ->
+	          kind == BeerKind.BLONDE ? (long) quantity : 3L * quantity;
+	    };
+	  }
+	  IO.println("sum: " + sum);
+	  
+	  articles.stream()
+    .flatMap(article -> switch (article) {
+      case Lego lego -> Stream.of(lego);
+      case Beer _ -> null;
+    })
+    .max(Comparator.comparingInt((Lego lego) -> lego.name().length() * 20))
+    .ifPresent(lego -> IO.println("max lego: " + lego.name()));
+	}
+	
+8.  static void printReceipt(List<Article> articles) {
+		articles.stream().collect(Collectors.teeing(
+	      Collectors.summingLong(article -> switch (article) {
+	        case Lego(int quantity, String name) -> (long) quantity * name.length() * 20;
+	        case Beer(int quantity, BeerKind kind) ->
+	            kind == BeerKind.BLONDE ? quantity : 3L * quantity;
+	      }),
+	      Collectors.flatMapping(
+	          article -> switch (article) {
+	            case Lego lego -> Stream.of(lego);
+	            case Beer _ -> null;
+	          },
+	          Collectors.maxBy(Comparator.comparingInt((Lego lego) -> lego.name().length() * 20))),
+	      (sum, maxLego) -> {
+	        IO.println("sum: " + sum);
+	        maxLego.ifPresent(lego -> IO.println("max lego: " + lego.name()));
+	        return null;
+	      }));
+	}
+	
+La nouvelle implantation est meilleure car on parcourt juste une fois la liste pour calculer le prix du reçu et aussi pour trouver
+le nom de la boîte de Lego la plus chère. 

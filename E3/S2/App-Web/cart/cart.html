@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="data:,">
+        <script src="cart.js" type="text/javascript"></script>
+        <style>
+        /* Main App Container */
+        .app {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+        }
+
+        /* Section Headers */
+        .app h3 {
+          color: #333;
+          border-bottom: 2px solid #ddd;
+          padding-bottom: 10px;
+          margin: 30px 0 20px 0;
+        }
+
+        /* Product Section */
+        .product-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px;
+          margin: 10px 0;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          background-color: #f9f9f9;
+        }
+
+        .product-info h3 {
+          margin: 0 0 5px 0;
+          color: #333;
+          border: none;
+          padding: 0;
+        }
+
+        .product-info p {
+          margin: 0;
+          font-weight: bold;
+          color: #2c5530;
+          font-size: 1.1em;
+        }
+
+        /* Article Section */
+        .article-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px;
+          margin: 10px 0;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          background-color: #f0f8ff;
+        }
+
+        .article-info {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          font-weight: 500;
+        }
+
+        /* Buy Section */
+        .buy-content {
+          text-align: center;
+          padding: 20px;
+        }
+
+        button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          min-width: 120px;
+        }
+
+        button:disabled {
+          cursor: not-allowed;
+          opacity: 0.6;
+          transform: none;
+        }
+
+        /* Button Color Variations */
+        .btn-add-cart {
+          background-color: #009e4f;
+          color: white;
+        }
+
+        .btn-remove-cart {
+          background-color: #ff007b;
+          color: white;
+        }
+
+        .btn-quantity {
+          background-color: #007bff;
+          color: white;
+          min-width: auto;
+          padding: 5px 12px;
+          font-size: 12px;
+        }
+
+        .btn-buy {
+          background-color: #ff7b00;
+          color: white;
+          font-size: 16px;
+          padding: 15px 30px;
+          min-width: 200px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+          .product-content, .article-content {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+          }
+
+          .article-info {
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+        </style>
+    </head>
+    <body>
+        <div id="App"></div>
+    </body>
+</html>

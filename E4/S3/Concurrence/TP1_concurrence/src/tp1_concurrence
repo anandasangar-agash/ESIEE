@@ -1,0 +1,22 @@
+#Exercice 1
+
+1. Runnable est une interface qui sert à écrire le code que le Thread doit exécuter.
+
+3. On remarque que l'ordre d'affichage change à chaque exécution, les 4 threads s'entrelacent.
+Lorsqu'on scroll sur l'affichage, on peut voir qu'un thread exécute souvent plusieurs itérations avant de donner à un autre thread sans qu'il finisse complétement 
+son exécution.  
+Oui c'est normal car le scheduler donne des tranches de temps aux threads. Il ne garantit pas l'ordre d'exécution. 
+
+#Exercice 3 
+
+3. Le thread main se termine juste après avoir lancé les 6 thread Turtle.
+La JVM s'éteint uniquement lorsque le thread Turtle 5 a fini son exécution.
+
+4. Le programme s'arrête imédiatement après le "Go!", on ne verra pas les messages Turtle x has finished.
+
+#Exerice 4 
+
+2. Vu que println affiche caractère par caractère, le scheduler peut interrompre un thread en plein milieu et passé
+la main à un autre thread, c'est pour ça qu'on a cette affichage là.
+
+3. Comme IO.println lui il renvoie tout le message à la sortie, on ne voyait pas cette affichage là.

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="LegoAndBeerTest" time="0.848" tests="51" errors="0" skipped="0" failures="5" flakes="0">
+  <properties>
+    <property name="java.specification.version" value="27"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/test-classes:/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/classes:/Users/agash/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.14.4/junit-jupiter-api-5.14.4.jar:/Users/agash/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/agash/.m2/repository/org/junit/platform/junit-platform-commons/1.14.4/junit-platform-commons-1.14.4.jar:/Users/agash/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="27"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="FR"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-27.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/surefire/surefirebooter-20260924160741856_3.jar /Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/surefire 2026-09-24T16-07-41_798-jvmRun1 surefire-20260924160741856_1tmp surefire_0-20260924160741856_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/test-classes:/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/classes:/Users/agash/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.14.4/junit-jupiter-api-5.14.4.jar:/Users/agash/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/agash/.m2/repository/org/junit/platform/junit-platform-commons/1.14.4/junit-platform-commons-1.14.4.jar:/Users/agash/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/agash"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-09-15"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-27.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer/target/surefire/surefirebooter-20260924160741856_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="27+35-2325"/>
+    <property name="user.name" value="agash"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.3.2"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/Users/agash/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/var/folders/q8/5x_t31qd19v1r0hgc5gmrswh0000gn/T/"/>
+    <property name="java.version" value="27"/>
+    <property name="user.dir" value="/Users/agash/Desktop/ESIEE/E4/S3/Java avancée/legoandbeer"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/agash/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="27+35-2325"/>
+    <property name="stdin.encoding" value="UTF-8"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="71.0"/>
+  </properties>
+  <testcase name="validFilePrintsReceiptAndExitsSuccessfully(Path)" classname="LegoAndBeerTest$Q4" time="0.126"/>
+  <testcase name="emptyFilePrintsZeroSum(Path)" classname="LegoAndBeerTest$Q4" time="0.081"/>
+  <testcase name="invalidArticleLinePrintsErrorAndExitsWithError(Path)" classname="LegoAndBeerTest$Q4" time="0.095"/>
+  <testcase name="sumsBeersOnly" classname="LegoAndBeerTest$Q4" time="0.003"/>
+  <testcase name="tooManyArgsPrintsUsageAndExitsWithError" classname="LegoAndBeerTest$Q4" time="0.084"/>
+  <testcase name="sumsLargeNumberOfLegos" classname="LegoAndBeerTest$Q4" time="0.006">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at LegoAndBeerTest$Q4.sumsLargeNumberOfLegos(LegoAndBeerTest.java:417)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+]]></failure>
+  </testcase>
+  <testcase name="sumIsPrintedAsPlainIntegerWithoutDecimalPoint" classname="LegoAndBeerTest$Q4" time="0.002"/>
+  <testcase name="sumsMixedArticles" classname="LegoAndBeerTest$Q4" time="0.001"/>
+  <testcase name="singleArticleSumExceedsIntegerMaxValue" classname="LegoAndBeerTest$Q4" time="0.003">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at LegoAndBeerTest$Q4.lambda$singleArticleSumExceedsIntegerMaxValue$0(LegoAndBeerTest.java:459)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:330)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1527)
+]]></failure>
+  </testcase>
+  <testcase name="missingFilePrintsErrorAndExitsWithError(Path)" classname="LegoAndBeerTest$Q4" time="0.086"/>
+  <testcase name="sumsLegosOnly" classname="LegoAndBeerTest$Q4" time="0.001"/>
+  <testcase name="sumAcrossMultipleArticlesExceedsIntegerMaxValue" classname="LegoAndBeerTest$Q4" time="0.002">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at LegoAndBeerTest$Q4.lambda$sumAcrossMultipleArticlesExceedsIntegerMaxValue$0(LegoAndBeerTest.java:472)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:330)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1527)
+]]></failure>
+  </testcase>
+  <testcase name="noArgsPrintsUsageAndExitsWithError" classname="LegoAndBeerTest$Q4" time="0.086"/>
+  <testcase name="emptyListPrintsZero" classname="LegoAndBeerTest$Q4" time="0.0"/>
+  <testcase name="sumDoesNotOverflowIntRange" classname="LegoAndBeerTest$Q4" time="0.001">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at LegoAndBeerTest$Q4.sumDoesNotOverflowIntRange(LegoAndBeerTest.java:437)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:583)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+]]></failure>
+  </testcase>
+  <testcase name="mainOnDirectoryPathPrintsErrorAndExitsWithError(Path)" classname="LegoAndBeerTest$Q4" time="0.077"/>
+  <testcase name="unknownBeerKindPrintsErrorAndExitsWithError(Path)" classname="LegoAndBeerTest$Q4" time="0.093"/>
+  <testcase name="sumMatchesTotalOfPerUnitPrices" classname="LegoAndBeerTest$Q4" time="0.001"/>
+  <testcase name="largeQuantityDoesNotThrowOutOfMemory" classname="LegoAndBeerTest$Q4" time="0.002">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at LegoAndBeerTest$Q4.lambda$largeQuantityDoesNotThrowOutOfMemory$0(LegoAndBeerTest.java:484)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:330)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1090)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:614)
+	at java.base/java.lang.Thread.run(Thread.java:1527)
+]]></failure>
+  </testcase>
+  <testcase name="readArticlesFromFileClosesStream" classname="LegoAndBeerTest$Q3" time="0.006"/>
+  <testcase name="emptyFileProducesEmptyList(Path)" classname="LegoAndBeerTest$Q3" time="0.002"/>
+  <testcase name="readsReturnAnUnmodifiableList(Path)" classname="LegoAndBeerTest$Q3" time="0.004"/>
+  <testcase name="invalidLineInFileThrows(Path)" classname="LegoAndBeerTest$Q3" time="0.001"/>
+  <testcase name="legoAndBeerClassHasNoPublicConstructor" classname="LegoAndBeerTest$Q3" time="0.0"/>
+  <testcase name="readsMultipleArticlesAndSkipsBlankLines(Path)" classname="LegoAndBeerTest$Q3" time="0.007"/>
+  <testcase name="legoAndBeerClass" classname="LegoAndBeerTest$Q3" time="0.001"/>
+  <testcase name="missingFileThrowsIOException(Path)" classname="LegoAndBeerTest$Q3" time="0.002"/>
+  <testcase name="parsesBeerKindXXX" classname="LegoAndBeerTest$Q2" time="0.001"/>
+  <testcase name="rejectsUnknownArticleType" classname="LegoAndBeerTest$Q2" time="0.001"/>
+  <testcase name="parsesBeerLine" classname="LegoAndBeerTest$Q2" time="0.001"/>
+  <testcase name="rejectsNonNumericQuantity" classname="LegoAndBeerTest$Q2" time="0.001"/>
+  <testcase name="rejectsUnknownBeerKind" classname="LegoAndBeerTest$Q2" time="0.0"/>
+  <testcase name="articleClass" classname="LegoAndBeerTest$Q2" time="0.0"/>
+  <testcase name="parsesLegoLine" classname="LegoAndBeerTest$Q2" time="0.001"/>
+  <testcase name="rejectsNonPositiveQuantity" classname="LegoAndBeerTest$Q2" time="0.0"/>
+  <testcase name="rejectsWrongTokenCount" classname="LegoAndBeerTest$Q2" time="0.0"/>
+  <testcase name="parsesBeerKindCaseInsensitively" classname="LegoAndBeerTest$Q2" time="0.0"/>
+  <testcase name="beerHaveFieldBasedEquality" classname="LegoAndBeerTest$Q1" time="0.005"/>
+  <testcase name="legoClass" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="beerStoresQuantityAndKind" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="beerRejectsNullKind" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="legoRejectsNullName" classname="LegoAndBeerTest$Q1" time="0.0"/>
+  <testcase name="legoHaveFieldBasedEquality" classname="LegoAndBeerTest$Q1" time="0.0"/>
+  <testcase name="legoStoresQuantityAndName" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="beerRejectsNonPositiveQuantity" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="legoAndBeerHaveACommonSuperType" classname="LegoAndBeerTest$Q1" time="0.0"/>
+  <testcase name="beerKindHasThreeValues" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="legoRejectsNonPositiveQuantity" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="beerKindClass" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="beerClass" classname="LegoAndBeerTest$Q1" time="0.001"/>
+  <testcase name="superTypeShouldNotDeclareAMethodQuantity" classname="LegoAndBeerTest$Q1" time="0.0"/>
+</testsuite>
